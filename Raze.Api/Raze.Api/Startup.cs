@@ -6,11 +6,17 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Raze.Api.Domain.Repositories;
+using Raze.Api.Domain.Services;
+using Raze.Api.Persistence.Context;
+using Raze.Api.Persistence.Repositories;
+using Raze.Api.Services;
 
 namespace Raze.Api
 {
@@ -27,7 +33,24 @@ namespace Raze.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "Raze.Api", Version = "v1"}); });
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "Raze.Api", Version = "v1"});
+                
+            });
+            //Configure InMemory DataBase
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseInMemoryDatabase("Raze-api-in-memory");
+            });
+            //Dependencies injection Rules
+            services.AddScoped<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentServices, CommentService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            
+            //Auto Mapper Dependency Injections
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
