@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Raze.Api.Domain.Services;
 using Raze.Api.Domain.Models;
+using Raze.Api.Extensions;
 using Raze.Api.Resources;
 
 namespace Raze.Api.Controllers
@@ -35,6 +36,51 @@ namespace Raze.Api.Controllers
             {
                 return BadRequest(ModelState.GetErrorMessages());
             }
+
+            var post = _mapper.Map<SavePostResource, Post>(resource);
+            var result = await _postService.SaveAsync(post);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var postResource = _mapper.Map<Post, SavePostResource>(result.Resource);
+            return Ok(postResource);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] SavePostResource resource)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState.GetErrorMessages());
+            }
+
+            var post = _mapper.Map<SavePostResource, Post>(resource);
+            var result = await _postService.UpdateAsync(id, post);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var postResource = _mapper.Map<Post, PostResource>(result.Resource);
+            return Ok(postResource);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _postService.DeleteAsync(id);
+
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+
+            var postResource = _mapper.Map<Post, PostResource>(result.Resource);
+            return Ok(postResource);
         }
     }
 }
