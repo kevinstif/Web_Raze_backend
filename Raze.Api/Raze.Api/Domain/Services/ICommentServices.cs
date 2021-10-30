@@ -9,7 +9,7 @@ namespace Raze.Api.Domain.Services
     {
         Task<IEnumerable<Comment>> ListAsync();
         Task<CommentsResponse> SaveAsync(Comment comment);
-        Task<CommentsResponse> FindByIdAsync(int id);
+        Task<Comment> FindByIdAsync(int id);
         Task<CommentsResponse> UpdateAsync(int id, Comment comment);
         Task<CommentsResponse> DeleteAsync(int id);
     }

@@ -38,12 +38,9 @@ namespace Raze.Api.Services
             }
         }
 
-        public async Task<CommentsResponse> FindByIdAsync(int id)
+        public async Task<Comment> FindByIdAsync(int id)
         {
-            var comment = await _commentRepository.FindByIdAsync(id);
-
-            return comment == null ? new CommentsResponse("Comment not found")
-                : new CommentsResponse(comment);
+            return await _commentRepository.FindByIdAsync(id);
         }
 
         public async Task<CommentsResponse> UpdateAsync(int id, Comment comment)

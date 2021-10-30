@@ -1,14 +1,26 @@
-﻿namespace Raze.Api.Domain.Services.Comunications
-{
-    public abstract class BaseResponse
-    {
-        protected BaseResponse(bool success, string message)
-        {
-            Success = success;
-            Message = message;
-        }
+﻿using System;
 
-        public bool Success { get; protected set; }
-        public string Message { get; protected set; }
+namespace Raze.Api.Domain.Services.Comunications
+{
+    public abstract class BaseResponse<T>
+    {
+        public bool Success { get; private set; }
+        public string Message { get; private set; }
+        
+        public  T Resource { get; private set; }
+        
+        public BaseResponse(string message)
+        {
+            Success = false;
+            Message = message;
+            Resource = default;
+        }
+        
+        public BaseResponse(T resource)
+        {
+            Success = true;
+            Message = string.Empty;
+            Resource = resource;
+        }
     }
 }

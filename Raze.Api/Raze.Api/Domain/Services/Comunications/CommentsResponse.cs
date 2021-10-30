@@ -1,17 +1,12 @@
 ﻿using System;
 using Raze.Api.Domain.Models;
+using Raze.Api.Resources.CommentResources;
 
 namespace Raze.Api.Domain.Services.Comunications
 {
-    public class CommentsResponse:BaseResponse
+    public class CommentsResponse:BaseResponse<Comment>
     {
-        public Comment Comment { get; private set; }
-        public CommentsResponse(bool success, string message, Comment comment) : base(success, message)
-        {
-            Comment = comment;
-        }
-        
-        public CommentsResponse(Comment comment):this(true,string.Empty, comment){}
-        public CommentsResponse(string message):this(false,message,null){}
+        public CommentsResponse(Comment comment):base(comment){}
+        public CommentsResponse(string message):base(message){}
     }
 }

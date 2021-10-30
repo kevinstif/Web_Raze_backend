@@ -30,8 +30,15 @@ namespace Raze.Api.Controllers
 
             return resources;
         }
-        
-        //TODO:Find by ID
+
+        [HttpGet("{id}")]
+        public async Task<CommentResource> GetByIdAsync(int id)
+        {
+            var comment = await _commentServices.FindByIdAsync(id);
+            var resource = _mapper.Map<Comment, CommentResource>(comment);
+
+            return resource;
+        }
 
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveCommentResource resource)
@@ -44,7 +51,7 @@ namespace Raze.Api.Controllers
             if (!result.Success)
                 return BadRequest(result.Message);
 
-            var commentResource = _mapper.Map<Comment, CommentResource>(result.Comment);
+            var commentResource = _mapper.Map<Comment, CommentResource>(result.Resource);
 
             return Ok(commentResource);
         }
@@ -63,7 +70,7 @@ namespace Raze.Api.Controllers
                 return BadRequest(result.Message);
             }
 
-            var commentResource = _mapper.Map<Comment, CommentResource>(result.Comment);
+            var commentResource = _mapper.Map<Comment, CommentResource>(result.Resource);
             return Ok(commentResource);
         }
 
@@ -76,7 +83,7 @@ namespace Raze.Api.Controllers
                 return BadRequest(result.Message);
             }
 
-            var commentResource = _mapper.Map<Comment, CommentResource>(result.Comment);
+            var commentResource = _mapper.Map<Comment, CommentResource>(result.Resource);
             return Ok(commentResource);
         }
     }
