@@ -47,6 +47,7 @@ namespace Raze.Api
             // Dependency Injection Rules (I)
             services.AddScoped<IInterestRepository, InterestRepository>();
             services.AddScoped<IInterestService, InterestService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             
             //AutoMapper Dependency Injection
             services.AddAutoMapper(typeof(Startup));

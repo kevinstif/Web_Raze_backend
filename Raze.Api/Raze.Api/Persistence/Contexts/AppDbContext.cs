@@ -18,8 +18,8 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Interest>().ToTable("Interests");
             builder.Entity<Interest>().HasKey(p => p.Id);
             builder.Entity<Interest>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Interest>().Property(p => p.Title).IsRequired().HasMaxLength(20);
-            builder.Entity<Interest>().Property(p => p.Description).IsRequired().HasMaxLength(50);
+            builder.Entity<Interest>().Property(p => p.Title).IsRequired().HasMaxLength(50);
+            builder.Entity<Interest>().Property(p => p.Description).IsRequired().HasMaxLength(100);
             builder.Entity<Interest>().Property(p => p.Published).IsRequired();
             
             //TODO - Relationships with users

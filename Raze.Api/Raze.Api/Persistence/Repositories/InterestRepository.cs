@@ -17,5 +17,10 @@ namespace Raze.Api.Persistence.Repositories
         {
             return await _context.Interests.ToListAsync();
         }
+
+        public async Task AddAsync(Interest interest)
+        {
+            await _context.Interests.AddAsync(interest);
+        }
     }
 }

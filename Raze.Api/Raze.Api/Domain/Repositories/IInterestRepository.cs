@@ -8,5 +8,6 @@ namespace Raze.Api.Domain.Repositories
     public interface IInterestRepository
     {
         Task<IEnumerable<Interest>> ListAsync();
+        Task AddAsync(Interest interest);
     }
 }
