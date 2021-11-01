@@ -27,3 +27,11 @@ C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\obj\Debug\net
 C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\obj\Debug\net5.0\ref\Raze.Api.dll
 C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\obj\Debug\net5.0\Raze.Api.pdb
 C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\obj\Debug\net5.0\Raze.Api.genruntimeconfig.cache
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

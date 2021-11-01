@@ -10,5 +10,6 @@
         public int Age { get; set; }
         public bool Premium { get; set; }
         public EUserType TypeUser { get; set; }
+        
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IQXVGGzLtV8xJ3gh+JA+DLPw+o9SW/RmvcEQoPhRfiz7NtCSNeQd6UJIkeF62sKQPRSf0I3xA/AtLyoX9lmh2A==",
+  "dgSpecHash": "PLdjElVwqohQcD2fmlcSYmN0YU2PSHtKVMc75P2LrojwxzUGsd8ysEe/qc92GtoFjDum81fdv37ck8VIXBA2Cg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jesus\\Documents\\GitHub\\Web_Raze_backend\\Raze.Api\\Raze.Api\\Raze.Api.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.11\\microsoft.entityframeworkcore.abstractions.5.0.11.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.11\\microsoft.entityframeworkcore.analyzers.5.0.11.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.11\\microsoft.entityframeworkcore.design.5.0.11.nupkg.sha512",
+    "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.11\\microsoft.entityframeworkcore.inmemory.5.0.11.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.11\\microsoft.entityframeworkcore.relational.5.0.11.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",

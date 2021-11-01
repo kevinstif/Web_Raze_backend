@@ -15,7 +15,7 @@ namespace Raze.Api.Users.Controllers
         {
             _userService = userService;
         }
-
+        [HttpGet]
         public async Task<IEnumerable<User>> GetAllAsync()
         {
             var users = await _userService.ListAsync();
