@@ -61,5 +61,26 @@ namespace Raze.Api.Services
                 return new InterestResponse($"Error while updating interest: {e.Message}");
             }
         }
+
+        public async Task<InterestResponse> DeleteAsync(int id)
+        {
+            var existingInterest = await _interestRepository.FindByIdAsync(id);
+
+            if (existingInterest == null)
+                return new InterestResponse("Not found");
+
+            try
+            {
+                _interestRepository.Remove(existingInterest);
+                await _unitOfWork.CompleteAsync();
+
+                return new InterestResponse(existingInterest);
+            }
+            catch (Exception e)
+            {
+                return new InterestResponse($"Error while deleting interest: {e.Message}");
+
+            }
+        }
     }
 }

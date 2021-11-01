@@ -64,5 +64,16 @@ namespace Raze.Api.Controllers
             var interestResource = _mapper.Map<Interest, InterestResource>(result.Interest);
             return Ok(interestResource);
         }
+        
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _interestService.DeleteAsync(id);
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            var interestResource = _mapper.Map<Interest, InterestResource>(result.Interest);
+            return Ok(interestResource);
+        }
     }
 }
