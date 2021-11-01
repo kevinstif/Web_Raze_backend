@@ -2,6 +2,6 @@
 {
     public class UserAdvised : User
     {
-        public int AdvisedMood { get; set; }
+        public int Mood { get; set; }
     }
 }
