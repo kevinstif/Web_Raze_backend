@@ -10,6 +10,7 @@ namespace Raze.Api.Domain.Repositories
         Task<IEnumerable<Interest>> ListAsync();
         Task AddAsync(Interest interest);
         Task<Interest> FindByIdAsync(int id);
+        //Task<Interest> FindByTitleAsync(string title);
         void Update(Interest interest);
         void Remove(Interest interest);
     }

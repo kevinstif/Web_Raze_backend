@@ -75,5 +75,27 @@ namespace Raze.Api.Controllers
             var interestResource = _mapper.Map<Interest, InterestResource>(result.Interest);
             return Ok(interestResource);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(int id)
+        {
+            var result = await _interestService.GetByIdAsync(id);
+            if (!result.Success)
+                return BadRequest(result.Message);
+            
+            var interestResource = _mapper.Map<Interest, InterestResource>(result.Interest);
+            return Ok(interestResource);
+        }
+        
+        /*[HttpGet("{title}")]
+        public async Task<IActionResult> GetByTitleAsync(string title)
+        {
+            var result = await _interestService.GetByTitleAsync(title);
+            if (!result.Success)
+                return BadRequest(result.Message);
+            
+            var interestResource = _mapper.Map<Interest, InterestResource>(result.Interest);
+            return Ok(interestResource);
+        }*/
     }
 }

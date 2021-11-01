@@ -82,5 +82,17 @@ namespace Raze.Api.Services
 
             }
         }
+
+        public async Task<InterestResponse> GetByIdAsync(int id)
+        {
+            var existingInterest = await _interestRepository.FindByIdAsync(id);
+            return new InterestResponse(existingInterest);
+        }
+        
+        /*public async Task<InterestResponse> GetByTitleAsync(string title)
+        {
+            var existingInterest = await _interestRepository.FindByTitleAsync(title);
+            return new InterestResponse(existingInterest);
+        }*/
     }
 }
