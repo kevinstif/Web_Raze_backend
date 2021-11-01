@@ -24,18 +24,41 @@ namespace Raze.Api.Services
             return await _interestRepository.ListAsync();   
         }
 
-        public async Task<SaveInterestResponse> SaveAsync(Interest interest)
+        public async Task<InterestResponse> SaveAsync(Interest interest)
         {
             try
             {
                 await _interestRepository.AddAsync(interest);
                 await _unitOfWork.CompleteAsync();
 
-                return new SaveInterestResponse(interest);
+                return new InterestResponse(interest);
             }
             catch (Exception e)
             {
-                return new SaveInterestResponse($"An error occurred while saving the category: {e.Message}");
+                return new InterestResponse($"Error while saving interest: {e.Message}");
+            }
+        }
+
+        public async Task<InterestResponse> UpdateAsync(int id, Interest interest)
+        {
+            var existingInterest = await _interestRepository.FindByIdAsync(id);
+
+            if (existingInterest == null)
+                return new InterestResponse("Not found");
+            existingInterest.Title = interest.Title;
+            existingInterest.Description = interest.Description;
+            existingInterest.Published = interest.Published;
+
+            try
+            {
+                _interestRepository.Update(existingInterest);
+                await _unitOfWork.CompleteAsync();
+
+                return new InterestResponse(existingInterest);
+            }
+            catch (Exception e)
+            {
+                return new InterestResponse($"Error while updating interest: {e.Message}");
             }
         }
     }

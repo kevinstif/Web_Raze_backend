@@ -9,6 +9,8 @@ namespace Raze.Api.Domain.Services
     public interface IInterestService
     {
         Task<IEnumerable<Interest>> ListAsync();
-        Task<SaveInterestResponse> SaveAsync(Interest interest);
+        Task<InterestResponse> SaveAsync(Interest interest);
+        Task<InterestResponse> UpdateAsync(int id, Interest interest);
+        
     }
 }

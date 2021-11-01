@@ -47,5 +47,22 @@ namespace Raze.Api.Controllers
             var interestResource = _mapper.Map<Interest, InterestResource>(result.Interest);
             return Ok(interestResource);
         }
+        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveInterestResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var interest = _mapper.Map<SaveInterestResource, Interest>(resource);
+
+            var result = await _interestService.UpdateAsync(id, interest);
+            
+            if (!result.Success)
+                return BadRequest(result.Message);
+
+            var interestResource = _mapper.Map<Interest, InterestResource>(result.Interest);
+            return Ok(interestResource);
+        }
     }
 }

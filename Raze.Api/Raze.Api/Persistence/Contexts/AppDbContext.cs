@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Raze.Api.Domain.Models;
+using Raze.Api.Extensions;
 
 namespace Raze.Api.Persistence.Contexts
 {
@@ -31,7 +32,7 @@ namespace Raze.Api.Persistence.Contexts
                 new Interest{Id=502,Title = "Sport",Description = "Clothes for training",Published = true}
             );
             
-            //builder.UseSnakeCaseNamingConventions();
+            builder.UseSnakeCaseNamingConventions();
         }
     }
 }

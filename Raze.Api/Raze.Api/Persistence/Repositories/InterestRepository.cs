@@ -22,5 +22,20 @@ namespace Raze.Api.Persistence.Repositories
         {
             await _context.Interests.AddAsync(interest);
         }
+
+        public async Task<Interest> FindByIdAsync(int id)
+        {
+            return await _context.Interests.FindAsync(id);
+        }
+
+        public void Update(Interest interest)
+        {
+            _context.Interests.Update(interest);
+        }
+
+        public void Remove(Interest interest)
+        {
+            _context.Interests.Remove(interest);
+        }
     }
 }
