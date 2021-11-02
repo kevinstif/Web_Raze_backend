@@ -10,7 +10,8 @@ namespace Raze.Api.Extensions
         {
             static IEnumerable<char> Convert(CharEnumerator e)
             {
-                if (!e.MoveNext()) yield break;
+                if(!e.MoveNext()) yield break;
+
                 yield return char.ToLower(e.Current);
 
                 while (e.MoveNext())
@@ -26,6 +27,7 @@ namespace Raze.Api.Extensions
                     }
                 }
             }
+
             return new string(Convert((text.GetEnumerator())).ToArray());
         }
     }

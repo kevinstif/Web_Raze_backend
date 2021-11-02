@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Repositories;
-using Raze.Api.Persistence.Context;
+using Raze.Api.Persistence.Contexts;
 
 namespace Raze.Api.Persistence.Repositories
 {

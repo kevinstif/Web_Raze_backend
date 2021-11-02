@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Raze.Api.Domain.Repositories;
-using Raze.Api.Persistence.Context;
+using Raze.Api.Persistence.Contexts;
 
 namespace Raze.Api.Persistence.Repositories
 {
-    public class UnitOfWork:IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly AppDbContext _context;
 

@@ -1,4 +1,4 @@
-﻿using Raze.Api.Persistence.Context;
+﻿using Raze.Api.Persistence.Contexts;
 
 namespace Raze.Api.Persistence.Repositories
 {
