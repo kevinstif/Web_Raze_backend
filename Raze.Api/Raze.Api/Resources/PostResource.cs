@@ -7,6 +7,7 @@
         public string Image { get; set; }
         public string Description { get; set; }
         public float Rate { get; set; }
+        public int NumberOfRates { get; set; }
         // public UserResource User;
         // public InterestResource Interest;
     }

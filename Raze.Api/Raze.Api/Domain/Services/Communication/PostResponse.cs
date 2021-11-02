@@ -4,12 +4,7 @@ namespace Raze.Api.Domain.Services.Communication
 {
     public class PostResponse : BaseResponse<Post>
     {
-        protected PostResponse(string message) : base(message)
-        {
-        }
-
-        public PostResponse(Post post) : base(post)
-        {
-        }
+        public PostResponse(Post post) : base(post) { }
+        public PostResponse(string message) : base(message) { }
     }
 }

@@ -45,7 +45,7 @@ namespace Raze.Api.Controllers
                 return BadRequest(result.Message);
             }
 
-            var postResource = _mapper.Map<Post, SavePostResource>(result.Resource);
+            var postResource = _mapper.Map<Post, PostResource>(result.Resource);
             return Ok(postResource);
         }
 

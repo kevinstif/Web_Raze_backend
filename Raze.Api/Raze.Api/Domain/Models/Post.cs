@@ -10,6 +10,7 @@ namespace Raze.Api.Domain.Models
         public string Description { get; set; }
         public float Rate { get; set; }
         public int NumberOfRates { get; set; }
+        
         public int UserId { get; set; }
         public int InterestId { get; set; }
         // public User User { get; set; }

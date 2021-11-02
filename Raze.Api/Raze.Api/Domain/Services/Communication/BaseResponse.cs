@@ -1,6 +1,6 @@
 ﻿namespace Raze.Api.Domain.Services.Communication
 {
-    public class BaseResponse<T>
+    public abstract class BaseResponse<T>
     {
         public bool Success { get; private set; }
         public string Message { get; private set; }
