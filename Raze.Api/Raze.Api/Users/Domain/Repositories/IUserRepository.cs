@@ -7,6 +7,7 @@ namespace Raze.Api.Users.Domain.Repositories
 {
     public interface IUserRepository
     {
-        Task<IEnumerable<User>> ListAsync(); 
+        Task<IEnumerable<User>> ListAsync();
+        Task AddAsync(User user);
     }
 }

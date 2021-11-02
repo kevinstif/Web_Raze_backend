@@ -21,6 +21,6 @@ namespace Raze.Api.Users.Controllers
             var users = await _userService.ListAsync();
             return users;
         }
-        
+        public async Task<IActionResult>PostAsync([FromBody] Sa)
     }
 }
