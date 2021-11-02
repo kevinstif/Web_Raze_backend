@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PLdjElVwqohQcD2fmlcSYmN0YU2PSHtKVMc75P2LrojwxzUGsd8ysEe/qc92GtoFjDum81fdv37ck8VIXBA2Cg==",
+  "dgSpecHash": "vRr5hat+J1oxwf2Jvzt2QoSJZRUdf+Y3JGOD1fDU9u/Nt6niYpGqLSjDptIORsg0PHSGPN/XoN/XETifoe/X1A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Jesus\\Documents\\GitHub\\Web_Raze_backend\\Raze.Api\\Raze.Api\\Raze.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jesus\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Jesus\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.11\\microsoft.entityframeworkcore.5.0.11.nupkg.sha512",
@@ -29,7 +31,8 @@
     "C:\\Users\\Jesus\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\Jesus\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\Jesus\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+    "C:\\Users\\Jesus\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
+    "C:\\Users\\Jesus\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -42,7 +42,8 @@ namespace Raze.Api
             //Dependency User Injection Rules
             services.AddScoped<IUserRepository,UserRepository>();
             services.AddScoped<IUserService,UserService>();
-
+            //automapper dependecy injecttion
+            services.AddAutoMapper(typeof(Startup));
         }
 
          // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
