@@ -1,4 +1,7 @@
-﻿namespace Raze.Api.Domain.Models
+﻿using System.Collections.Generic;
+using Raze.Api.Users.Domain.Models;
+
+namespace Raze.Api.Domain.Models
 {
     public class Interest
     {
@@ -7,6 +10,8 @@
         public string Description { get; set; }
         public bool Published { get; set; }
         
-        //TODO - Relationships with users
+        public IList<UserAdvisor> UserAdvisors { get; set; } = new List<UserAdvisor>();
+        public IList<UserAdvised> UserAdviseds { get; set; } = new List<UserAdvised>();
+        public IList<Post> Posts { get; set; } = new List<Post>();
     }
 }

@@ -9,6 +9,6 @@
         public float Rate { get; set; }
         public int NumberOfRates { get; set; }
         public int UserId { get; set; }
-        // public InterestResource Interest;
+        public int InterestId { get; set; }
     }
 }

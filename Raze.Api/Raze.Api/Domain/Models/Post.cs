@@ -16,6 +16,7 @@ namespace Raze.Api.Domain.Models
         public UserAdvised UserAdvised { get; set; }
         public UserAdvisor UserAdvisor { get; set; }
         public int InterestId { get; set; }
+        public Interest Interest { get; set; }
         public IList<Comment> Comments { get; set; } = new List<Comment>();
         
         // 

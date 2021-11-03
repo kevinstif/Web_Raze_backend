@@ -21,6 +21,29 @@ namespace Raze.Api.Persistence.Contexts
         {
             base.OnModelCreating(builder);
             
+            builder.Entity<Interest>().ToTable("Interests");
+            builder.Entity<Interest>().HasKey(p => p.Id);
+            builder.Entity<Interest>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Interest>().Property(p => p.Title).IsRequired().HasMaxLength(50);
+            builder.Entity<Interest>().Property(p => p.Description).IsRequired().HasMaxLength(100);
+            builder.Entity<Interest>().Property(p => p.Published).IsRequired();
+            builder.Entity<Interest>().HasMany(p => p.UserAdvisors)
+                .WithOne(p => p.Interest)
+                .HasForeignKey(p => p.InterestId);
+            builder.Entity<Interest>().HasMany(p => p.UserAdviseds)
+                .WithOne(p => p.Interest)
+                .HasForeignKey(p => p.InterestId);
+            builder.Entity<Interest>().HasMany(p => p.Posts)
+                .WithOne(p => p.Interest)
+                .HasForeignKey(P => P.InterestId);
+
+            builder.Entity<Interest>().HasData
+            (
+                new Interest{Id=500,Title = "Casual",Description = "Informal clothes",Published = true},
+                new Interest{Id=501,Title = "Formal",Description = "Formal and elegant clothes",Published = false},
+                new Interest{Id=502,Title = "Sport",Description = "Clothes for training",Published = true}
+            );
+            
             builder.Entity<UserAdvised>().ToTable("UserAdviseds");
             builder.Entity<UserAdvisor>().ToTable("UserAdvisors");
             //discriminator
@@ -52,22 +75,6 @@ namespace Raze.Api.Persistence.Contexts
             
             builder.Entity<UserAdvisor>().HasData(
                 new UserAdvisor{Id = 3,FirstName = "Drake",LastName = "Bell",UserName = "Drell",Password = "hamburgesa",Age = 23,Premium =false,YearsExperience = 13,Rank = 273,Profession = "Teacher"}
-            );
-
-            builder.Entity<Interest>().ToTable("Interests");
-            builder.Entity<Interest>().HasKey(p => p.Id);
-            builder.Entity<Interest>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<Interest>().Property(p => p.Title).IsRequired().HasMaxLength(50);
-            builder.Entity<Interest>().Property(p => p.Description).IsRequired().HasMaxLength(100);
-            builder.Entity<Interest>().Property(p => p.Published).IsRequired();
-            
-            //TODO - Relationships with users
-            
-            builder.Entity<Interest>().HasData
-            (
-                new Interest{Id=500,Title = "Casual",Description = "Informal clothes",Published = true},
-                new Interest{Id=501,Title = "Formal",Description = "Formal and elegant clothes",Published = false},
-                new Interest{Id=502,Title = "Sport",Description = "Clothes for training",Published = true}
             );
 
             builder.Entity<Post>().ToTable("Posts");

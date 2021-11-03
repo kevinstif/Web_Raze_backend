@@ -46,6 +46,8 @@ namespace Raze.Api.Users.Services
             if (existingUserAdvised == null)
                 return new UserAdvisedResponse("User not found");
             existingUserAdvised.UserName = userAdvised.UserName;
+            existingUserAdvised.Mood = userAdvised.Mood;
+            existingUserAdvised.InterestId = userAdvised.InterestId;
             try
             {
                 _userAdvisedRepository.Update(existingUserAdvised);

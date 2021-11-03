@@ -18,5 +18,7 @@ namespace Raze.Api.Users.Resources
         public int YearsExperience { get; set; }
         [Required]
         public string Profession { get; set; }
+        [Required]
+        public int InterestId { get; set; }
     }
 }
