@@ -17,6 +17,10 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
             return await _context.UserAdvisors.ToListAsync();
         }
-        
+
+        public async Task AddAsync(UserAdvisor userAdvisor)
+        {
+            await _context.UserAdvisors.AddAsync(userAdvisor);
+        }
     }
 }

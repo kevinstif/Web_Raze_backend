@@ -17,6 +17,7 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
             return await _context.UserAdviseds.ToListAsync();
         }
+
         public async Task AddAsync(UserAdvised userAdvised)
         {
             await _context.UserAdviseds.AddAsync(userAdvised);
