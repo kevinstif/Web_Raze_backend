@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,28 @@ namespace Raze.Api.Users.Controllers
              if (!result.Success)
                  return BadRequest(result.Message);
              return Ok(result.UserAdvised);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveUserAdvisedResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+            var userAdvised = _mapper.Map<SaveUserAdvisedResource, UserAdvised>(resource);
+            var result = await _userAdvisedService.UpdateAsync(id, userAdvised);
+            if (!result.Success)
+                return BadRequest(result.Message);
+            return Ok(result.UserAdvised);
+            
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _userAdvisedService.DeleteAsync(id);
+            if (!result.Success)
+                return BadRequest(result.Message);
+            return Ok(result.UserAdvised);
         }
     }
 }

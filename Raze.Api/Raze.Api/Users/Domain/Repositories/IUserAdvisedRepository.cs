@@ -9,6 +9,9 @@ namespace Raze.Api.Users.Domain.Repositories
     {
         Task<IEnumerable<UserAdvised>> ListAsync();
         Task AddAsync(UserAdvised userAdvised);
+        Task<UserAdvised> FindbyIdAsync(int id);
+        void Update(UserAdvised userAdvised);
+        void Remove(UserAdvised userAdvised);
     }
     
 }

@@ -24,19 +24,57 @@ namespace Raze.Api.Users.Services
             return await _userAdvisedRepository.ListAsync();
         }
 
-        public async Task<SaveUserAdvisedResponse> SaveAsync(UserAdvised userAdvised)
+        public async Task<UserAdvisedResponse> SaveAsync(UserAdvised userAdvised)
         {
             try
             {
                 await _userAdvisedRepository.AddAsync(userAdvised);
                 await _unitOfWork.CompleteAsync();
-                return new SaveUserAdvisedResponse(userAdvised);
+                return new UserAdvisedResponse(userAdvised);
             }
             catch (Exception e)
             {
               
-                return new SaveUserAdvisedResponse($"error:{e.Message}");
+                return new UserAdvisedResponse($"error:{e.Message}");
             }
+        }
+
+        public async  Task<UserAdvisedResponse> UpdateAsync(int id, UserAdvised userAdvised)
+        {
+            var existingUserAdvised = await _userAdvisedRepository.FindbyIdAsync(id);
+            if (existingUserAdvised == null)
+                return new UserAdvisedResponse("User not found");
+            existingUserAdvised.UserName = userAdvised.UserName;
+            try
+            {
+                _userAdvisedRepository.Update(existingUserAdvised);
+                await _unitOfWork.CompleteAsync();
+                return new UserAdvisedResponse(existingUserAdvised);
+
+            }
+            catch (Exception e)
+            {
+                return new UserAdvisedResponse($"An error ocurred while updating the userAdvice :{e.Message}");
+                
+            }
+        }
+
+        public async Task<UserAdvisedResponse> DeleteAsync(int id)
+        {
+            var existingUserAdvised = await _userAdvisedRepository.FindbyIdAsync(id);
+            if (existingUserAdvised == null)
+                return new UserAdvisedResponse("UserAdvised not found");
+            try
+            {
+                _userAdvisedRepository.Remove(existingUserAdvised);
+                await _unitOfWork.CompleteAsync();
+                return new UserAdvisedResponse(existingUserAdvised);
+            }
+            catch (Exception e)
+            {
+                return new UserAdvisedResponse($"An error ocurred while deleting the userAdvice :{e.Message}");
+            }
+        
         }
     }
 }

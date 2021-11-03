@@ -22,5 +22,20 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
             await _context.UserAdviseds.AddAsync(userAdvised);
         }
+
+        public async Task<UserAdvised> FindbyIdAsync(int id)
+        {
+            return await _context.UserAdviseds.FindAsync(id);
+        }
+
+        public void Update(UserAdvised userAdvised)
+        {
+            _context.UserAdviseds.Update(userAdvised);
+        }
+
+        public void Remove(UserAdvised userAdvised)
+        {
+            _context.UserAdviseds.Remove(userAdvised);
+        }
     }
 }
