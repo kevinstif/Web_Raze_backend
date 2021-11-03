@@ -10,6 +10,10 @@ using Raze.Api.Domain.Services;
 using Raze.Api.Persistence.Contexts;
 using Raze.Api.Persistence.Repositories;
 using Raze.Api.Services;
+using Raze.Api.Users.Domain.Repositories;
+using Raze.Api.Users.Domain.Services;
+using Raze.Api.Users.Persistence.Repositories;
+using Raze.Api.Users.Services;
 
 namespace Raze.Api
 {
@@ -22,9 +26,10 @@ namespace Raze.Api
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        // This method gets called by the runtime. Use this method to add services to the container. 
         public void ConfigureServices(IServiceCollection services)
         {
+       
             services.AddControllers();
 
             services.AddRouting(options => options.LowercaseUrls = true);
@@ -47,6 +52,10 @@ namespace Raze.Api
             services.AddScoped<IInterestService, InterestService>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IPostService, PostService>();
+            services.AddScoped<IUserAdvisedRepository,UserAdvisedRepository>();
+            services.AddScoped<IUserAdvisedService,UserAdvisedService>();
+            services.AddScoped<IUserAdvisorRepository,UserAdvisorRepository>();
+            services.AddScoped<IUserAdvisorService,UserAdvisorService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //AutoMapper Dependency Injection
             services.AddAutoMapper(typeof(Startup));
