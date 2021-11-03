@@ -14,5 +14,6 @@ namespace Raze.Api.Users.Domain.Models
         public bool Premium { get; set; }
         
         public IList<Comment> Comments { get; set; } = new List<Comment>();
+        public IList<Post> Posts { get; set; } = new List<Post>();
     }
 }

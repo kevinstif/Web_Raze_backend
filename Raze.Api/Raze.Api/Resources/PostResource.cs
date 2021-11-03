@@ -8,7 +8,7 @@
         public string Description { get; set; }
         public float Rate { get; set; }
         public int NumberOfRates { get; set; }
-        // public UserResource User;
+        public int UserId { get; set; }
         // public InterestResource Interest;
     }
 }
