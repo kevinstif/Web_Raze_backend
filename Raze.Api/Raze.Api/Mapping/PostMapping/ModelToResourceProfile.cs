@@ -2,13 +2,13 @@
 using Raze.Api.Domain.Models;
 using Raze.Api.Resources;
 
-namespace Raze.Api.Mapping.InterestsMapping
+namespace Raze.Api.Mapping.PostMapping
 {
     public class ModelToResourceProfile : Profile
     {
         public ModelToResourceProfile()
         {
-            CreateMap<Interest, InterestResource>();
+            CreateMap<Post, PostResource>();
         }
     }
 }

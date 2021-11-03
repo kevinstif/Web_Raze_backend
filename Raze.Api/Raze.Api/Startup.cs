@@ -26,13 +26,14 @@ namespace Raze.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddRouting(options => options.LowercaseUrls = true);
 
+            services.AddRouting(options => options.LowercaseUrls = true);
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Raze.Api", Version = "v1"});
             });
-            
+
             // Configure In-Memory Database 
             services.AddDbContext<AppDbContext>(options =>
             {
@@ -44,11 +45,11 @@ namespace Raze.Api
             services.AddScoped<ICommentServices, CommentService>();
             services.AddScoped<IInterestRepository, InterestRepository>();
             services.AddScoped<IInterestService, InterestService>();
+            services.AddScoped<IPostRepository, PostRepository>();
+            services.AddScoped<IPostService, PostService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            
             //AutoMapper Dependency Injection
             services.AddAutoMapper(typeof(Startup));
-            
         }
         
 
