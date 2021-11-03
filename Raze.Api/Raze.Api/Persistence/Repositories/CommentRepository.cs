@@ -29,6 +29,14 @@ namespace Raze.Api.Persistence.Repositories
             return await _context.Comments.FindAsync(id);
         }
 
+        public async Task<IEnumerable<Comment>> FindByPostId(int postId)
+        {
+            return await _context.Comments
+                .Where(p => p.PostId == postId)
+                .Include(p => p.Post)
+                .ToListAsync();
+        }
+
         public void Update(Comment comment)
         { 
             _context.Comments.Update(comment);

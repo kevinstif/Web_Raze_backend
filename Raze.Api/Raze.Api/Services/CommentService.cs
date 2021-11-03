@@ -5,12 +5,15 @@ using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Repositories;
 using Raze.Api.Domain.Services;
 using Raze.Api.Domain.Services.Comunications;
+using Raze.Api.Resources.CommentResources;
 
 namespace Raze.Api.Services
 {
     public class CommentService:ICommentServices
     {
         private readonly ICommentRepository _commentRepository;
+        private readonly IPostRepository _postRepository;
+        
         private readonly IUnitOfWork _unitOfWork;
 
         public CommentService(ICommentRepository commentRepository, IUnitOfWork unitOfWork)
@@ -24,8 +27,14 @@ namespace Raze.Api.Services
             return await _commentRepository.ListAsync();
         }
 
+        public async Task<IEnumerable<Comment>> LisByPostAsync(int postId)
+        {
+            return await _commentRepository.FindByPostId(postId);
+        }
+
         public async Task<CommentsResponse> SaveAsync(Comment comment)
         {
+            
             try
             {
                 await _commentRepository.AddAsync(comment);
@@ -40,7 +49,8 @@ namespace Raze.Api.Services
 
         public async Task<Comment> FindByIdAsync(int id)
         {
-            return await _commentRepository.FindByIdAsync(id);
+            var comment = await _commentRepository.FindByIdAsync(id);
+            return comment;
         }
 
         public async Task<CommentsResponse> UpdateAsync(int id, Comment comment)

@@ -9,6 +9,7 @@ namespace Raze.Api.Domain.Repositories
         Task<IEnumerable<Comment>> ListAsync();
         Task AddAsync(Comment comment);
         Task<Comment> FindByIdAsync(int id);
+        Task<IEnumerable<Comment>> FindByPostId(int postId);
         void Update(Comment comment);
         void Remove(Comment comment);
     }
