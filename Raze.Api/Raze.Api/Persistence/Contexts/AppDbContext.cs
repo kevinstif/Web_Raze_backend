@@ -27,9 +27,15 @@ namespace Raze.Api.Persistence.Contexts
             //Constrains Advised
             builder.Entity<UserAdvised>().HasKey(p => p.Id);
             builder.Entity<UserAdvised>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<UserAdvised>().HasMany(p => p.Comments)
+                .WithOne(p => p.UserAdvised)
+                .HasForeignKey(p => p.UserId);
             //Constrarins Advisor
             builder.Entity<UserAdvisor>().HasKey(p => p.Id);
             builder.Entity<UserAdvisor>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<UserAdvisor>().HasMany(p => p.Comments)
+                .WithOne(p => p.UserAdvisor)
+                .HasForeignKey(p => p.UserId);
             //Seed Data Users
             builder.Entity<UserAdvised>().HasData(
                 new UserAdvised{Id = 4,FirstName = "Loriam",LastName = "KARL",UserName = "kARLO",Password = "dracula25",Age = 22,Premium =false,Mood = 2},

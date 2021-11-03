@@ -1,4 +1,7 @@
-﻿namespace Raze.Api.Users.Domain.Models
+﻿using System.Collections.Generic;
+using Raze.Api.Domain.Models;
+
+namespace Raze.Api.Users.Domain.Models
 {
     public class User
     {
@@ -9,5 +12,7 @@
         public  string Password { get; set; }
         public int Age { get; set; }
         public bool Premium { get; set; }
+        
+        public IList<Comment> Comments { get; set; } = new List<Comment>();
     }
 }
