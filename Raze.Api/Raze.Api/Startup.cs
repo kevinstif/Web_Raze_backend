@@ -43,6 +43,8 @@ namespace Raze.Api
             //DEPENDENCY RULES
             services.AddScoped<IUserAdvisedRepository,UserAdvisedRepository>();
             services.AddScoped<IUserAdvisedService,UserAdvisedService>();
+            services.AddScoped<IUserAdvisorRepository,UserAdvisorRepository>();
+            services.AddScoped<IUserAdvisorService,UserAdvisorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
