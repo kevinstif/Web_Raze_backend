@@ -4,6 +4,7 @@
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        //TODO: Connection with user and post Will be place here
+        public int PostId { get; set; }
+        public Post Post { get; set; }
     }
 }

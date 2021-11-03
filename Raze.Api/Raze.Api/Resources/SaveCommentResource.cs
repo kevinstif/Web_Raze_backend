@@ -7,5 +7,8 @@ namespace Raze.Api.Resources.CommentResources
         [Required]
         [MaxLength (200)]
         public string Text { get; set; }
+        
+        [Required]
+        public int PostId { get; set; }
     }
 }
