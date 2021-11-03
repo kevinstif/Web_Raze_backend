@@ -17,5 +17,6 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
             return await _context.UserAdvisors.ToListAsync();
         }
+        
     }
 }

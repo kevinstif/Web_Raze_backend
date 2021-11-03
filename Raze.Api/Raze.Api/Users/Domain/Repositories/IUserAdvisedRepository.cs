@@ -8,5 +8,7 @@ namespace Raze.Api.Users.Domain.Repositories
     public interface IUserAdvisedRepository
     {
         Task<IEnumerable<UserAdvised>> ListAsync();
+        Task AddAsync(UserAdvised userAdvised);
     }
+    
 }

@@ -33,3 +33,5 @@ C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\obj\Debug\net
 C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\obj\Debug\net5.0\Raze.Api.pdb
 C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\obj\Debug\net5.0\Raze.Api.genruntimeconfig.cache
 C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Jesus\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
