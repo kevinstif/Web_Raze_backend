@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Raze.Api.Users.Domain.Models;
+using Raze.Api.Users.Extensions;
 
 namespace Raze.Api.Users.Persistence.Contexts
 {
@@ -35,6 +36,7 @@ namespace Raze.Api.Users.Persistence.Contexts
             builder.Entity<UserAdvisor>().HasData(
                 new UserAdvisor{Id = 3,FirstName = "Drake",LastName = "Bell",UserName = "Drell",Password = "hamburgesa",Age = 23,Premium =false,YearsExperience = 13,Rank = 273,Profession = "Teacher"}
             );
+            builder.UseSnakeCaseNamingConvention();
         }
     }
 }
