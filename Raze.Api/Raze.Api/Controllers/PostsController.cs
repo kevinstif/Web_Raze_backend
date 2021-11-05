@@ -29,6 +29,14 @@ namespace Raze.Api.Controllers
             return resources;
         }
 
+        [HttpGet("{id}")]
+        public async Task<PostResource> GetByIdAsync(int id)
+        {
+            var post = await _postService.FindByIdAsync(id);
+            var resource = _mapper.Map<Post, PostResource>(post);
+            return resource;
+        }
+
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SavePostResource resource)
         {

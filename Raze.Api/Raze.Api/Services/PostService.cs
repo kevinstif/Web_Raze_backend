@@ -24,6 +24,12 @@ namespace Raze.Api.Services
             return await _postRepository.ListAsync();
         }
 
+        public async Task<Post> FindByIdAsync(int id)
+        {
+            var post = await _postRepository.FindByIdAsync(id);
+            return post;
+        }
+
         public async Task<PostResponse> SaveAsync(Post post)
         {
             try
