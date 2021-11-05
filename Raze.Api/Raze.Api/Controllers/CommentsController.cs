@@ -6,9 +6,11 @@ using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Extensions;
 using Raze.Api.Resources.CommentResources;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Produces("application/json")]
     [Route("/api/v1/[controller]")]
     public class CommentsController: ControllerBase
     {
@@ -21,6 +23,10 @@ namespace Raze.Api.Controllers
             _mapper = mapper;
         }
 
+        [SwaggerOperation(
+            Summary = "Get All Comments",
+            Description = "Get All Comments already stored",
+            Tags = new []{"Comments"})]
         [HttpGet]
         public async Task<IEnumerable<CommentResource>> GetAllAsync()
         {
@@ -30,7 +36,11 @@ namespace Raze.Api.Controllers
 
             return resources;
         }
-
+        
+        [SwaggerOperation(
+            Summary = "Get Comments By Id",
+            Description = "Get Comments By Id already stored",
+            Tags = new []{"Comment"})]
         [HttpGet("{id}")]
         public async Task<CommentResource> GetByIdAsync(int id)
         {
@@ -40,6 +50,10 @@ namespace Raze.Api.Controllers
             return resource;
         }
 
+        [SwaggerOperation(
+            Summary = "Create New Comment",
+            Description = "Create New Comment",
+            Tags = new []{"Create Comment"})]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveCommentResource resource)
         {
@@ -56,6 +70,10 @@ namespace Raze.Api.Controllers
             return Ok(commentResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update Comment",
+            Description = "Update Comment already stored",
+            Tags = new []{"Update"})]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync(int id, [FromBody] SaveCommentResource resource)
         {
@@ -74,6 +92,10 @@ namespace Raze.Api.Controllers
             return Ok(commentResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Delete Comment",
+            Description = "Delete Comment already stored",
+            Tags = new []{"Delete"})]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

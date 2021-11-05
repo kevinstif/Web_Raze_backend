@@ -6,9 +6,11 @@ using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Extensions;
 using Raze.Api.Resources;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Produces("application/json")]
     [Route("api/v1/[controller]")]
     public class TagsController:ControllerBase
     {
@@ -21,6 +23,10 @@ namespace Raze.Api.Controllers
             _mapper = mapper;
         }
 
+        [SwaggerOperation(
+            Summary = "Get All Tags",
+            Description = "Get All Tags already stored",
+            Tags = new []{"Tags"})]
         [HttpGet]
         public async Task<IEnumerable<TagResource>> GetAllAsync()
         {
@@ -31,6 +37,10 @@ namespace Raze.Api.Controllers
             return resources;
         }
 
+        [SwaggerOperation(
+            Summary = "Get Tag",
+            Description = "Get Tag By Id already stored",
+            Tags = new []{"Tag"})]
         [HttpGet("{id}")]
         public async Task<TagResource> GetByIdAsync(int id)
         {
@@ -39,6 +49,10 @@ namespace Raze.Api.Controllers
             return resource;
         }
 
+        [SwaggerOperation(
+            Summary = "Create Tag",
+            Description = "Create Tag",
+            Tags = new []{"Create"})]
         [HttpPost]
         public async Task<IActionResult> CreateTagAsync([FromBody] SaveTagResource resource)
         {
@@ -56,6 +70,10 @@ namespace Raze.Api.Controllers
             return Ok(tagResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Update Tag",
+            Description = "Update Tag By Id already stored",
+            Tags = new []{"Tag"})]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync(int id, [FromBody] SaveTagResource resource)
         {
@@ -73,6 +91,10 @@ namespace Raze.Api.Controllers
             return Ok(tagResource);
         }
 
+        [SwaggerOperation(
+            Summary = "Delete Tag",
+            Description = "Delete Tag By Id already stored",
+            Tags = new []{"Tag"})]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

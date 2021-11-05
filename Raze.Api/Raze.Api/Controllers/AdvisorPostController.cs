@@ -8,6 +8,7 @@ using Raze.Api.Resources;
 
 namespace Raze.Api.Controllers
 {
+    
     [ApiController]
     [Route("/api/v1/usersadvisors/{userId}/posts")]
     public class AdvisorPostController: ControllerBase

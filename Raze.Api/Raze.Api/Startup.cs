@@ -37,6 +37,7 @@ namespace Raze.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Raze.Api", Version = "v1"});
+                c.EnableAnnotations();
             });
 
             // Configure In-Memory Database 
