@@ -10,7 +10,7 @@ namespace Raze.Api.Controllers
 {
     [ApiController]
     [Route("/api/v1/usersadvisors/{userId}/posts")]
-    public class AdvisorPostController
+    public class AdvisorPostController: ControllerBase
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;

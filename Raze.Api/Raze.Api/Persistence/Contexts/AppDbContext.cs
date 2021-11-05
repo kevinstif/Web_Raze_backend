@@ -45,7 +45,7 @@ namespace Raze.Api.Persistence.Contexts
                 .HasForeignKey(p => p.InterestId);
             builder.Entity<Interest>().HasMany(p => p.Posts)
                 .WithOne(p => p.Interest)
-                .HasForeignKey(P => P.InterestId);
+                .HasForeignKey(p => p.InterestId);
 
             builder.Entity<Interest>().HasData
             (

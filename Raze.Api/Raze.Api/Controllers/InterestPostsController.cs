@@ -9,22 +9,22 @@ using Raze.Api.Resources;
 namespace Raze.Api.Controllers
 {
     [ApiController]
-    [Route("/api/v1/usersadviseds/{userId}/posts")]
-    public class AdvisedPostsController: ControllerBase
+    [Route("/api/v1/interests/{interestId}/posts")]
+    public class InterestPostsController: ControllerBase
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
 
-        public AdvisedPostsController(IPostService postService, IMapper mapper)
+        public InterestPostsController(IPostService postService, IMapper mapper)
         {
             _postService = postService;
             _mapper = mapper;
         }
-
+        
         [HttpGet]
-        public async Task<IEnumerable<PostResource>> GetAllByUserIdAsync(int userId)
+        public async Task<IEnumerable<PostResource>> GetAllByUserIdAsync(int interestId)
         {
-            var posts = await _postService.ListByAdvisedAsync(userId);
+            var posts = await _postService.ListByInterestAsync(interestId);
             var resources = _mapper.Map<IEnumerable<Post>, IEnumerable<PostResource>>(posts);
             return resources;
         }

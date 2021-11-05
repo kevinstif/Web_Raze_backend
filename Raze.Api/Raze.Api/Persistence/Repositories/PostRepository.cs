@@ -35,6 +35,22 @@ namespace Raze.Api.Persistence.Repositories
                 .ToListAsync();
         }
 
+        public async Task<IEnumerable<Post>> FindByTagId(int id)
+        {
+            return await _context.Posts
+                .Where(p => p.TagId == id)
+                .Include(p => p.Tag)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Post>> FindByInterestId(int id)
+        {
+            return await _context.Posts
+                .Where(p => p.InterestId == id)
+                .Include(p => p.Interest)
+                .ToListAsync();
+        }
+
         public async Task AddAsync(Post post)
         {
             await _context.Posts.AddAsync(post);
