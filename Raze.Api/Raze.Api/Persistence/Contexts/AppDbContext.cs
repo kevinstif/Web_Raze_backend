@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Raze.Api.Domain.Models;
 using Raze.Api.Extensions;
 using Raze.Api.Users.Domain.Models;
@@ -12,7 +13,8 @@ namespace Raze.Api.Persistence.Contexts
         public DbSet<Post> Posts { get; set; }
         public DbSet<UserAdvised>UserAdviseds { get; set; }
         public DbSet<UserAdvisor>UserAdvisors{ get; set; }
-       
+        public DbSet<Tag>Tags { get; set; }
+
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
@@ -20,6 +22,11 @@ namespace Raze.Api.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            builder.Entity<Tag>().ToTable("tags");
+            builder.Entity<Tag>().HasKey(p => p.Id);
+            builder.Entity<Tag>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Tag>().Property(p => p.Title).IsRequired().HasMaxLength(20);
             
             builder.Entity<Interest>().ToTable("Interests");
             builder.Entity<Interest>().HasKey(p => p.Id);

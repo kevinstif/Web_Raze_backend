@@ -5,7 +5,6 @@ using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Repositories;
 using Raze.Api.Domain.Services;
 using Raze.Api.Domain.Services.Comunications;
-using Raze.Api.Resources.CommentResources;
 
 namespace Raze.Api.Services
 {
