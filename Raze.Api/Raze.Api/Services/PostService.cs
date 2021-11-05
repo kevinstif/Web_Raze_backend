@@ -5,17 +5,24 @@ using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Repositories;
 using Raze.Api.Domain.Services;
 using Raze.Api.Domain.Services.Communication;
+using Raze.Api.Users.Domain.Repositories;
 
 namespace Raze.Api.Services
 {
     public class PostService : IPostService
     {
         private readonly IPostRepository _postRepository;
+        private readonly IUserAdvisedRepository _advisedRepository;
+        private readonly IUserAdvisorRepository _advisorRepository;
+        private readonly IInterestRepository _interestRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PostService(IPostRepository postRepository, IUnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, IUserAdvisedRepository advisedRepository, IUserAdvisorRepository advisorRepository, IInterestRepository interestRepository, IUnitOfWork unitOfWork)
         {
             _postRepository = postRepository;
+            _advisedRepository = advisedRepository;
+            _advisorRepository = advisorRepository;
+            _interestRepository = interestRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -32,11 +39,23 @@ namespace Raze.Api.Services
 
         public async Task<PostResponse> SaveAsync(Post post)
         {
+            var existingAdvised = await _advisedRepository.FindbyIdAsync(post.UserId);
+            var existingAdvisor = await  _advisorRepository.FindbyIdAsync(post.UserId);
+            if (existingAdvisor == null && existingAdvised == null)
+            {
+                return new PostResponse("User not found.");
+            }
+
+            var existingInterest = await _interestRepository.FindByIdAsync(post.InterestId);
+            if (existingInterest == null)
+            {
+                return new PostResponse("Interest not found.");
+            }
+            
             try
             {
                 await _postRepository.AddAsync(post);
                 await _unitOfWork.CompleteAsync();
-
                 return new PostResponse(post);
             }
             catch (Exception e)

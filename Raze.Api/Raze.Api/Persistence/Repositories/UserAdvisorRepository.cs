@@ -23,5 +23,10 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
             await _context.UserAdvisors.AddAsync(userAdvisor);
         }
+
+        public async Task<UserAdvisor> FindbyIdAsync(int id)
+        {
+            return await _context.UserAdvisors.FindAsync(id);
+        }
     }
 }

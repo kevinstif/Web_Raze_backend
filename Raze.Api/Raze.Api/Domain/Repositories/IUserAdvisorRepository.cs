@@ -8,6 +8,7 @@ namespace Raze.Api.Users.Domain.Repositories
     {
         Task<IEnumerable<UserAdvisor>> ListAsync();
         Task AddAsync(UserAdvisor userAdvisor);
+        Task<UserAdvisor> FindbyIdAsync(int id);
 
     }
 }
