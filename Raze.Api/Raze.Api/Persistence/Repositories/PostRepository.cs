@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Raze.Api.Domain.Models;
@@ -16,6 +17,22 @@ namespace Raze.Api.Persistence.Repositories
         public async Task<IEnumerable<Post>> ListAsync()
         {
             return await _context.Posts.ToListAsync();
+        }
+
+        public async Task<IEnumerable<Post>> FindByAdvicedId(int id)
+        {
+            return await _context.Posts
+                .Where(p => p.UserId == id)
+                .Include(p => p.UserAdvised)
+                .ToListAsync();
+        }
+
+        public async Task<IEnumerable<Post>> FindByAdvisorId(int id)
+        {
+            return await _context.Posts
+                .Where(p => p.UserId == id)
+                .Include(p => p.UserAdvisor)
+                .ToListAsync();
         }
 
         public async Task AddAsync(Post post)

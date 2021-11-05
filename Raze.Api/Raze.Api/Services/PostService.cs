@@ -31,6 +31,16 @@ namespace Raze.Api.Services
             return await _postRepository.ListAsync();
         }
 
+        public async Task<IEnumerable<Post>> ListByAdvisedAsync(int userId)
+        {
+            return await _postRepository.FindByAdvicedId(userId);
+        }
+
+        public async Task<IEnumerable<Post>> ListByAdvisorAsync(int userId)
+        {
+            return await _postRepository.FindByAdvisorId(userId);
+        }
+
         public async Task<Post> FindByIdAsync(int id)
         {
             var post = await _postRepository.FindByIdAsync(id);

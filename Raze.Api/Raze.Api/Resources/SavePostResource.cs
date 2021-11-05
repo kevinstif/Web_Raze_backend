@@ -26,5 +26,8 @@ namespace Raze.Api.Resources
         
         [Required]
         public int InterestId { get; set; }
+        
+        [Required]
+        public int TagId { get; set; }
     }
 }

@@ -10,5 +10,6 @@
         public int NumberOfRates { get; set; }
         public int UserId { get; set; }
         public int InterestId { get; set; }
+        public int TagId { get; set; }
     }
 }

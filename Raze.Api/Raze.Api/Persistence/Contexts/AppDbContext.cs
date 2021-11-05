@@ -27,6 +27,9 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Tag>().HasKey(p => p.Id);
             builder.Entity<Tag>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Tag>().Property(p => p.Title).IsRequired().HasMaxLength(20);
+            builder.Entity<Tag>().HasMany(p => p.Posts)
+                .WithOne(p => p.Tag)
+                .HasForeignKey(p => p.TagId);
             
             builder.Entity<Interest>().ToTable("Interests");
             builder.Entity<Interest>().HasKey(p => p.Id);
