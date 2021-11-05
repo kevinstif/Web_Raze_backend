@@ -56,6 +56,9 @@ namespace Raze.Api
             services.AddScoped<IUserAdvisedService,UserAdvisedService>();
             services.AddScoped<IUserAdvisorRepository,UserAdvisorRepository>();
             services.AddScoped<IUserAdvisorService,UserAdvisorService>();
+            services.AddScoped<ITagRepository, TagRepository>();
+            services.AddScoped<ITagServices, TagServices>();
+            
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             //AutoMapper Dependency Injection
             services.AddAutoMapper(typeof(Startup));

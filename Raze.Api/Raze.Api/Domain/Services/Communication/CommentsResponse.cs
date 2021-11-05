@@ -1,5 +1,4 @@
-﻿using System;
-using Raze.Api.Domain.Models;
+﻿using Raze.Api.Domain.Models;
 using Raze.Api.Resources.CommentResources;
 
 namespace Raze.Api.Domain.Services.Comunications
