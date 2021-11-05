@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Raze.Api.Users.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Extensions;
+using Raze.Api.Resources;
 using Raze.Api.Users.Resources;
 
 namespace Raze.Api.Controllers
@@ -22,10 +23,11 @@ namespace Raze.Api.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public async Task<IEnumerable<UserAdvisor>> GetAllAsync()
+        public async Task<IEnumerable<UserAdvisorResource>> GetAllAsync()
         {
             var userAdvisors = await _userAdvisorService.ListAsync();
-            return userAdvisors;
+            var resources = _mapper.Map<IEnumerable<UserAdvisor>, IEnumerable<UserAdvisorResource>>(userAdvisors);
+            return resources;
         }
         
         
@@ -40,7 +42,34 @@ namespace Raze.Api.Controllers
             var result = await _userAdvisorService.SaveAsync(userAdvisor);
             if (!result.Success)
                 return BadRequest(result.Message);
-            return Ok(result.Resource);
+            
+            var userAdvisorResource = _mapper.Map<UserAdvisor, UserAdvisorResource>(result.Resource);
+            return Ok(userAdvisorResource);
+        }
+        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutAsync(int id, [FromBody] SaveUserAdvisorResource resource)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+            var userAdvisor = _mapper.Map<SaveUserAdvisorResource, UserAdvisor>(resource);
+            var result = await _userAdvisorService.UpdateAsync(id, userAdvisor);
+            if (!result.Success)
+                return BadRequest(result.Message);
+            
+            var userAdvisorResource = _mapper.Map<UserAdvisor, UserAdvisorResource>(result.Resource);
+            return Ok(userAdvisorResource);
+            
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _userAdvisorService.DeleteAsync(id);
+            if (!result.Success)
+                return BadRequest(result.Message);
+            var userAdvisorResource = _mapper.Map<UserAdvisor, UserAdvisorResource>(result.Resource);
+            return Ok(userAdvisorResource);
         }
     }
 }
