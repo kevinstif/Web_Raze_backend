@@ -28,5 +28,15 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
             return await _context.UserAdvisors.FindAsync(id);
         }
+
+        public void Update(UserAdvisor userAdvisor)
+        {
+            _context.UserAdvisors.Update(userAdvisor);
+        }
+
+        public void Remove(UserAdvisor userAdvisor)
+        {
+            _context.UserAdvisors.Remove(userAdvisor);
+        }
     }
 }
