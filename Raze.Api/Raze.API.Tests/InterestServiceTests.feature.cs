@@ -19,7 +19,7 @@ namespace Raze.API.Tests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class TagServiceTestFeature : object, Xunit.IClassFixture<TagServiceTestFeature.FixtureData>, System.IDisposable
+    public partial class InterestServiceTestsFeature : object, Xunit.IClassFixture<InterestServiceTestsFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace Raze.API.Tests
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "TagServiceTest.feature"
+#line 1 "InterestServiceTests.feature"
 #line hidden
         
-        public TagServiceTestFeature(TagServiceTestFeature.FixtureData fixtureData, Raze_API_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public InterestServiceTestsFeature(InterestServiceTestsFeature.FixtureData fixtureData, Raze_API_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,8 +40,8 @@ namespace Raze.API.Tests
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "TagServiceTest", "As a developer\r\nI want to add new tag through API\r\nSo that It can be available fo" +
-                    "r applications.", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "", "InterestServiceTests", "As a Developer\r\nI want to add new Interest through API\r\nSo that It can be availab" +
+                    "le for applications.", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -81,7 +81,7 @@ namespace Raze.API.Tests
 #line 6
     #line hidden
 #line 7
-        testRunner.Given("The Endpoint https://localhost:5001/api/v1/tags is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+        testRunner.Given("the Endpoint https://localhost:5001/api/v1/interests is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         
@@ -90,16 +90,16 @@ namespace Raze.API.Tests
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Add Tag")]
-        [Xunit.TraitAttribute("FeatureTitle", "TagServiceTest")]
-        [Xunit.TraitAttribute("Description", "Add Tag")]
-        [Xunit.TraitAttribute("Category", "tag-adding")]
-        public virtual void AddTag()
+        [Xunit.SkippableFactAttribute(DisplayName="Add Interest")]
+        [Xunit.TraitAttribute("FeatureTitle", "InterestServiceTests")]
+        [Xunit.TraitAttribute("Description", "Add Interest")]
+        [Xunit.TraitAttribute("Category", "interest-adding")]
+        public virtual void AddInterest()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag-adding"};
+                    "interest-adding"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Tag", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Interest", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 10
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -123,35 +123,43 @@ namespace Raze.API.Tests
 #line 6
     this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Title"});
-                table13.AddRow(new string[] {
-                            "White t-shirt"});
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Title",
+                            "Description",
+                            "Published"});
+                table1.AddRow(new string[] {
+                            "Elegant",
+                            "Suits for important meetings",
+                            "true"});
 #line 11
-        testRunner.When("A Post Request is sent", ((string)(null)), table13, "When ");
+        testRunner.When("A Post Request is sent", ((string)(null)), table1, "When ");
 #line hidden
 #line 14
         testRunner.Then("A Response with Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Title"});
-                table14.AddRow(new string[] {
-                            "White t-shirt"});
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Title",
+                            "Description",
+                            "Published"});
+                table2.AddRow(new string[] {
+                            "Elegant",
+                            "Suits for important meetings",
+                            "true"});
 #line 15
-        testRunner.And("A Tag Resource is included in response body", ((string)(null)), table14, "And ");
+        testRunner.And("A Interest Resource is included in Response Body", ((string)(null)), table2, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Add Tag with exiting title")]
-        [Xunit.TraitAttribute("FeatureTitle", "TagServiceTest")]
-        [Xunit.TraitAttribute("Description", "Add Tag with exiting title")]
-        public virtual void AddTagWithExitingTitle()
+        [Xunit.SkippableFactAttribute(DisplayName="Add Interest with null title")]
+        [Xunit.TraitAttribute("FeatureTitle", "InterestServiceTests")]
+        [Xunit.TraitAttribute("Description", "Add Interest with null title")]
+        public virtual void AddInterestWithNullTitle()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Tag with exiting title", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Interest with null title", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 19
     this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -175,25 +183,19 @@ namespace Raze.API.Tests
 #line 6
     this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Title"});
-                table15.AddRow(new string[] {
-                            "black Clothes"});
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Title",
+                            "Description",
+                            "Published"});
+                table3.AddRow(new string[] {
+                            "",
+                            "Just clothes",
+                            "true"});
 #line 20
-        testRunner.Given("A Tag is already saved", ((string)(null)), table15, "Given ");
+        testRunner.When("A Post Request is sent with title null", ((string)(null)), table3, "When ");
 #line hidden
-                TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Title"});
-                table16.AddRow(new string[] {
-                            "black Clothes"});
 #line 23
-        testRunner.When("A Post Request is sent", ((string)(null)), table16, "When ");
-#line hidden
-#line 26
         testRunner.Then("A Response with Status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 27
-        testRunner.And("A Message of \"This tag already exist\" is include in response body", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -206,12 +208,12 @@ namespace Raze.API.Tests
             
             public FixtureData()
             {
-                TagServiceTestFeature.FeatureSetup();
+                InterestServiceTestsFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                TagServiceTestFeature.FeatureTearDown();
+                InterestServiceTestsFeature.FeatureTearDown();
             }
         }
     }

@@ -17,18 +17,8 @@ So that It can be available for applications.
           | Elegant | Suits for important meetings | true      |
 
     Scenario: Add Interest with null title
-        When A Post Request is sent
+        When A Post Request is sent with title null
           | Title | Description  | Published |
-          | null  | Just clothes | true      |
+          |       | Just clothes | true      |
         Then A Response with Status 400 is received
-        And A Message of "The Title field is required." is included in Response Body
-
-    Scenario: Add Interest with existing Title
-        Given A Interest with the same Title already exists
-          | Title | Description          | Published |
-          | Sport | Clothes for training | true      |
-        When A Post Request is sent
-          | Title | Description          | Published |
-          | Sport | Clothes for training | true      |
-        Then A Response with Status 400 is received
-        And A Message of "Interest title already exists." is included in Response Body
+        

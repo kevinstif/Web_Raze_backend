@@ -83,29 +83,29 @@ namespace Raze.API.Tests
 #line 7
   testRunner.Given("the Endpoint https://localhost:5001/api/v1/posts is available", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
                         "Title",
                         "Description",
                         "Published"});
-            table1.AddRow(new string[] {
-                        "1",
+            table4.AddRow(new string[] {
+                        "3",
                         "Casual",
                         "Casual Outfits",
                         "1"});
 #line 8
-  testRunner.And("A Interest is already stored", ((string)(null)), table1, "And ");
+  testRunner.And("A Interest is already stored", ((string)(null)), table4, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
                         "Title"});
-            table2.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "2",
                         "Jeans"});
 #line 11
-     testRunner.And("A Tag is already stored", ((string)(null)), table2, "And ");
+     testRunner.And("A Tag is already stored", ((string)(null)), table5, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
                         "FirstName",
                         "LastName",
@@ -114,7 +114,7 @@ namespace Raze.API.Tests
                         "Age",
                         "Premium",
                         "InterestId"});
-            table3.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "1",
                         "Edward",
                         "Ticlavilca",
@@ -124,9 +124,9 @@ namespace Raze.API.Tests
                         "1",
                         "1"});
 #line 14
-  testRunner.And("A User is already stored", ((string)(null)), table3, "And ");
+  testRunner.And("A User is already stored", ((string)(null)), table6, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "Id",
                         "Title",
                         "Image",
@@ -136,7 +136,7 @@ namespace Raze.API.Tests
                         "UserId",
                         "InterestId",
                         "TagId"});
-            table4.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "1",
                         "Best winter outfit",
                         "image 1",
@@ -147,7 +147,7 @@ namespace Raze.API.Tests
                         "1",
                         "1"});
 #line 17
-     testRunner.And("A Post is already stored", ((string)(null)), table4, "And ");
+     testRunner.And("A Post is already stored", ((string)(null)), table7, "And ");
 #line hidden
         }
         
@@ -189,27 +189,27 @@ namespace Raze.API.Tests
 #line 6
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title",
                             "Image",
                             "Description",
                             "UserId",
                             "InterestId",
                             "TagId"});
-                table5.AddRow(new string[] {
+                table8.AddRow(new string[] {
                             "Best summer outfit",
                             "image 1",
                             "Use a striped t-shirt this summer",
                             "1",
-                            "1",
-                            "1"});
+                            "3",
+                            "2"});
 #line 24
-  testRunner.When("A Post Request is Sent", ((string)(null)), table5, "When ");
+  testRunner.When("A Post Request is Sent", ((string)(null)), table8, "When ");
 #line hidden
 #line 27
   testRunner.Then("A Response with status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                             "id",
                             "title",
                             "image",
@@ -219,7 +219,7 @@ namespace Raze.API.Tests
                             "userId",
                             "interestId",
                             "tagId"});
-                table6.AddRow(new string[] {
+                table9.AddRow(new string[] {
                             "2",
                             "Best summer outfit",
                             "image 1",
@@ -227,10 +227,10 @@ namespace Raze.API.Tests
                             "0",
                             "0",
                             "1",
-                            "1",
-                            "1"});
+                            "3",
+                            "2"});
 #line 28
-  testRunner.And("A Post Resource is included in Response Body", ((string)(null)), table6, "And ");
+  testRunner.And("A Post Resource is included in Response Body", ((string)(null)), table9, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -267,28 +267,28 @@ namespace Raze.API.Tests
 #line 6
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title",
                             "Image",
                             "Description",
                             "UserId",
                             "InterestId",
                             "TagId"});
-                table7.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "Best autumn outfit",
                             "image 1",
                             "Use a striped t-shirt this autumn",
                             "1",
-                            "1",
+                            "3",
                             "-20"});
 #line 33
-  testRunner.When("A Post Request is Sent", ((string)(null)), table7, "When ");
+  testRunner.When("A Post Request is Sent", ((string)(null)), table10, "When ");
 #line hidden
 #line 36
   testRunner.Then("A Response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 37
-  testRunner.And("A Message of \"Tag not found.\" is included in Response Body", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("A Message of \"Tag not found.\" is included in Response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -325,14 +325,14 @@ namespace Raze.API.Tests
 #line 6
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title",
                             "Image",
                             "Description",
                             "UserId",
                             "InterestId",
                             "TagId"});
-                table8.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "Best autumn outfit",
                             "image 1",
                             "Use a striped t-shirt this autumn",
@@ -340,13 +340,13 @@ namespace Raze.API.Tests
                             "-1",
                             "2"});
 #line 40
-  testRunner.When("A Post Request is Sent", ((string)(null)), table8, "When ");
+  testRunner.When("A Post Request is Sent", ((string)(null)), table11, "When ");
 #line hidden
 #line 43
   testRunner.Then("A Response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 44
-  testRunner.And("A Message of \"Interest not found.\" is included in Response Body", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("A Message of \"Interest not found.\" is included in Response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -383,28 +383,28 @@ namespace Raze.API.Tests
 #line 6
  this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title",
                             "Image",
                             "Description",
                             "UserId",
                             "InterestId",
                             "TagId"});
-                table9.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "Best autumn outfit",
                             "image 1",
                             "Use a striped t-shirt this autumn",
                             "-1",
-                            "1",
-                            "1"});
+                            "3",
+                            "2"});
 #line 47
-  testRunner.When("A Post Request is Sent", ((string)(null)), table9, "When ");
+  testRunner.When("A Post Request is Sent", ((string)(null)), table12, "When ");
 #line hidden
 #line 50
   testRunner.Then("A Response with status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 51
-  testRunner.And("A Message of \"User not found.\" is included in Response Body", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("A Message of \"User not found.\" is included in Response", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

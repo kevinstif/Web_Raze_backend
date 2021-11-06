@@ -1,44 +1,88 @@
-﻿using TechTalk.SpecFlow;
+﻿using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Newtonsoft.Json;
+using Raze.Api;
+using Raze.Api.Domain.Models;
+using Raze.Api.Resources;
+using Raze.Api.Resources.CommentResources;
+using SpecFlow.Internal.Json;
+using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
+using Xunit;
 
 namespace Raze.API.Tests
 {
     [Binding]
     public class InterestServiceStepsDefinition
     {
-        [Given(@"the Endpoint https://localhost:(.*)/api/v(.*)/interests is available")]
-        public void GivenTheEndpointHttpsLocalhostApiVInterestsIsAvailable(int port, int version)
+        private readonly WebApplicationFactory<Startup> _factory;
+        
+        private HttpClient Client { get; set; }
+        private Uri BaseUri { get; set; }
+        private Task<HttpResponseMessage> Response { get; set; }
+        private InterestResource Interest { get; set; }
+
+        public InterestServiceStepsDefinition(WebApplicationFactory<Startup> factory)
         {
-            ScenarioContext.StepIsPending();
+            _factory = factory;
+        }
+
+        [Given(@"the Endpoint https://localhost:(.*)/api/v(.*)/interests is available")]
+        public void GivenTheInterestsEndpointIsAvailable(int port, int version)
+        {
+            BaseUri = new Uri($"https://localhost:{port}/api/v{version}/interests");
+            Client = _factory.CreateClient(new WebApplicationFactoryClientOptions { BaseAddress = BaseUri });
         }
 
         [When(@"A Post Request is sent")]
-        public void WhenAPostRequestIsSent(Table table)
+        public void WhenAPostRequestIsSent(Table saveInterestResource)
         {
-            ScenarioContext.StepIsPending();
+            var resource = saveInterestResource.CreateSet<SaveInterestResource>().First();
+            var content = new StringContent(resource.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json);
+            Response = Client.PostAsync(BaseUri, content);
+        }
+        
+        [When(@"A Post Request is sent with title null")]
+        public void WhenAPostRequestIsSentWithTitleNull(Table saveInterestResource)
+        {
+            var resource = saveInterestResource.CreateSet<SaveInterestResource>().First();
+            var content = new StringContent(resource.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json);
+            Response = Client.PostAsync(BaseUri, content);
         }
 
         [Then(@"A Response with Status (.*) is received")]
-        public void ThenAResponseWithStatusIsReceived(int p0)
+        public void ThenAResponseWithStatusIsReceived(int expectedStatus)
         {
-            ScenarioContext.StepIsPending();
+            var expectedStatusCode = ((HttpStatusCode) expectedStatus).ToString();
+            var actualStatusCode = Response.Result.StatusCode.ToString();
+            Assert.Equal(expectedStatusCode, actualStatusCode);
         }
 
         [Then(@"A Interest Resource is included in Response Body")]
-        public void ThenAInterestResourceIsIncludedInResponseBody(Table table)
+        public async void ThenAInterestResourceIsIncludedInResponseBody(Table expectedInterestResource)
         {
-            ScenarioContext.StepIsPending();
+            var expectedResource = expectedInterestResource.CreateSet<InterestResource>().First();
+            var responseData = await Response.Result.Content.ReadAsStringAsync();
+            var resource = JsonConvert.DeserializeObject<InterestResource>(responseData);
+            expectedResource.Id = resource.Id;
+            var jsonExpectedResource = expectedResource.ToJson();
+            var jsonActualResource = resource.ToJson();
+            Assert.Equal(jsonExpectedResource, jsonActualResource);
         }
 
         [Then(@"A Message of ""(.*)"" is included in Response Body")]
-        public void ThenAMessageOfIsIncludedInResponseBody(string p0)
+        public async void ThenAMessageIsIncludedInResponseBodyWithValue(string expectedMessage)
         {
-            ScenarioContext.StepIsPending();
-        }
-
-        [Given(@"A Interest with the same Title already exists")]
-        public void GivenAInterestWithTheSameTitleAlreadyExists(Table table)
-        {
-            ScenarioContext.StepIsPending();
+            var actualMessage = await Response.Result.Content.ReadAsStringAsync();
+            var jsonExpectedMessage = expectedMessage.ToJson();
+            var jsonActualMessage = actualMessage.ToJson();
+            Assert.Equal(jsonExpectedMessage, jsonActualMessage);
         }
     }
 }

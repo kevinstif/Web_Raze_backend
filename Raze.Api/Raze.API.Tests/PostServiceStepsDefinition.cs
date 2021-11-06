@@ -120,13 +120,13 @@ namespace Raze.API.Tests
             Assert.Equal(jsonExpectedResource, jsonActualResource);
         }
 
-        [Then(@"A Message of ""(.*)"" is included in Response Body")]
-        public async void ThenAMessageOfIsIncludedInResponseBody(string expectedMessage)
+        [Then(@"A Message of ""(.*)"" is included in Response")]
+        public async void ThenAMessageOfIsIncludedInResponse(string expectedMessage)
         {
             var actualMessage = await Response.Result.Content.ReadAsStringAsync();
             var jsonExpectedMessage = expectedMessage.ToJson();
-            var jsonActualMessage = actualMessage.ToJson();
-            Assert.Equal(jsonExpectedMessage, jsonActualMessage);
+            
+            Assert.Equal(jsonExpectedMessage, actualMessage);
         }
         
     }
