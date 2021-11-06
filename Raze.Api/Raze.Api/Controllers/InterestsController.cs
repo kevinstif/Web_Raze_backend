@@ -7,9 +7,12 @@ using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Extensions;
 using Raze.Api.Resources;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Produces("application/json")]
+    [ApiController]
     [Route("/api/v1/[controller]")]
     public class InterestsController : ControllerBase
     {
@@ -21,6 +24,11 @@ namespace Raze.Api.Controllers
             _interestService = interestService;
             _mapper = mapper;
         }
+        
+        [SwaggerOperation(
+            Summary = "Get All Interests",
+            Description = "Get All Interests already stored.",
+            Tags = new []{"Interests"})]
         
         [HttpGet]
         public async Task<IEnumerable<InterestResource>> GetAllAsync()
