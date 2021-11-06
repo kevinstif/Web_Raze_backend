@@ -36,8 +36,6 @@ namespace Raze.Api.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
-            Console.WriteLine("nAqyu muere :c");
-            Console.WriteLine("nunca llego");
             var userAdvisor = _mapper.Map<SaveUserAdvisorResource, UserAdvisor>(resource);
             var result = await _userAdvisorService.SaveAsync(userAdvisor);
             if (!result.Success)
