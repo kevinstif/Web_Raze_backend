@@ -1,47 +1,88 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using System;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Mime;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Newtonsoft.Json;
 using Raze.Api;
+using Raze.Api.Resources;
+using SpecFlow.Internal.Json;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
+using Xunit;
 
 namespace Raze.API.Tests
 {
     [Binding]
     public class TagServiceStepsDefinition
     {
-        //private readonly WebApplicationFactory<Startup>
-        [Given(@"The Endpoint https://localhost:(.*)/api/v(.*)/tags is available")]
-        public void GivenTheEndpointHttpsLocalhostApiVTagsIsAvailable(int port, int version)
+        private readonly WebApplicationFactory<Startup> _factory;
+        
+        private HttpClient Client { get; set; }
+        private Uri BaseUri { get; set; }
+        private Task<HttpResponseMessage> Response { get; set; }
+        private TagResource Tag { get; set; }
+
+        public TagServiceStepsDefinition(WebApplicationFactory<Startup> factory)
         {
-            ScenarioContext.StepIsPending();
+            _factory = factory;
+        }
+
+        [Given(@"The Endpoint https://localhost:(.*)/api/v(.*)/tags is available")]
+        public void GivenTheTagsEndpointIsAvailable(int port, int version)
+        {
+            BaseUri = new Uri($"https://localhost:{port}/api/{version}/tags");
+            Client = _factory.CreateClient(new WebApplicationFactoryClientOptions {BaseAddress = BaseUri});
         }
 
         [When(@"A Post Request is sent")]
-        public void WhenAPostRequestIsSent(Table table)
+        public void WhenAPostRequestIsSent(Table saveTagResource)
         {
-            ScenarioContext.StepIsPending();
+            var resources = saveTagResource.CreateSet<SaveTagResource>().First();
+            var content = new StringContent(resources.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json);
+            Response = Client.PostAsync(BaseUri, content);
         }
 
         [Then(@"A Response with Status (.*) is received")]
-        public void ThenAResponseWithStatusIsReceived(int p0)
+        public void ThenAResponseWithStatusIsReceived(int expectedStatus)
         {
-            ScenarioContext.StepIsPending();
+            var expectedStatusCode = ((HttpStatusCode) expectedStatus).ToString();
+            var actualStatusCode = Response.Result.StatusCode.ToString();
+            Assert.Equal(expectedStatusCode,actualStatusCode);
         }
 
         [Then(@"A Tag Resource is included in response body")]
-        public void ThenATagResourceIsIncludedInResponseBody(Table table)
+        public async void ThenATagResourceIsIncludedInResponseBody(Table expectedTagResource)
         {
-            ScenarioContext.StepIsPending();
+            var expectedResources = expectedTagResource.CreateSet<TagResource>().First();
+            var responseData = await Response.Result.Content.ReadAsStringAsync();
+            var resource = JsonConvert.DeserializeObject<TagResource>(responseData);
+            expectedResources.Id = resource.Id;
+            var jsonExpectedResources = expectedResources.ToJson();
+            var jsonActualResources = resource.ToJson();
+            Assert.Equal(jsonExpectedResources,jsonActualResources);
         }
 
         [Then(@"A Message of ""(.*)"" is include in response body")]
-        public void ThenAMessageOfIsIncludeInResponseBody(string p0)
+        public async void ThenAMessageOfIsIncludeInResponseBodyWithValue(string expectedMessage)
         {
-            ScenarioContext.StepIsPending();
+            var actualMessage = await Response.Result.Content.ReadAsStringAsync();
+            var jsonExpectedMessage = expectedMessage.ToJson();
+            Assert.Equal(jsonExpectedMessage,actualMessage);
         }
 
         [Given(@"A Tag is already stored")]
-        public void GivenATagIsAlreadyStored(Table table)
+        public async void GivenATagIsAlreadyStored(Table existingTagResources)
         {
-            ScenarioContext.StepIsPending();
+            var resources = existingTagResources.CreateSet<SaveTagResource>().First();
+            var content = new StringContent(resources.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json);
+            var tagResponse = Client.PostAsync(BaseUri, content);
+            var tagResponseData = await tagResponse.Result.Content.ReadAsStringAsync();
+            var existingTag = JsonConvert.DeserializeObject<TagResource>(tagResponseData);
+            Tag = existingTag;
         }
     }
 }

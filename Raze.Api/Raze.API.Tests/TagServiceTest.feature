@@ -21,5 +21,7 @@ So that It can be available for applications.
           | Title         |
           | black Clothes |
         When A Post Request is sent
+          | Title         |
+          | black Clothes |
         Then A Response with Status 400 is received
         And A Message of "This tag already exist" is include in response body
