@@ -29,6 +29,15 @@ namespace Raze.Api.Persistence.Repositories
             return await _context.Tags.FindAsync(id);
         }
 
+        public async Task<IEnumerable<Tag>> FindByTitleAsync(string title)
+        {
+            var existingTag = await _context.Tags
+                .Where(p => p.Title == title)
+                .ToListAsync();
+                
+            return existingTag;
+        }
+
         public void Update(Tag tag)
         {
             _context.Tags.Update(tag);

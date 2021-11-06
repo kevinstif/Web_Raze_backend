@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Repositories;
@@ -26,6 +27,12 @@ namespace Raze.Api.Services
 
         public async Task<TagsResponse> SaveAsync(Tag tag)
         {
+
+            var existingTag = _tagRepository.FindByTitleAsync(tag.Title);
+
+            if (existingTag.Result.Any())
+                return new TagsResponse("This tag already exist");
+
             try
             {
                 await _tagRepository.AddAsync(tag);
