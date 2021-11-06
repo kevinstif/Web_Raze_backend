@@ -38,7 +38,7 @@ namespace Raze.API.Tests
             Client = _factory.CreateClient(new WebApplicationFactoryClientOptions {BaseAddress = BaseUri});
         }
 
-        [When(@"A Post Request is sent")]
+        [When(@"Post Request is sent")]
         public void WhenAPostRequestIsSent(Table saveTagResource)
         {
             var resources = saveTagResource.CreateSet<SaveTagResource>().First();
@@ -46,7 +46,7 @@ namespace Raze.API.Tests
             Response = Client.PostAsync(BaseUri, content);
         }
 
-        [Then(@"A Response with Status (.*) is received")]
+        [Then(@"Response with Status (.*) is received")]
         public void ThenAResponseWithStatusIsReceived(int expectedStatus)
         {
             var expectedStatusCode = ((HttpStatusCode) expectedStatus).ToString();

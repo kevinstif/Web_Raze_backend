@@ -8,10 +8,10 @@ So that It can be available for applications.
 
     @tag-adding
     Scenario: Add Tag
-        When A Post Request is sent
+        When Post Request is sent
           | Title         |
           | White t-shirt |
-        Then A Response with Status 200 is received
+        Then Response with Status 200 is received
         And A Tag Resource is included in response body
           | Title         |
           | White t-shirt |
@@ -23,5 +23,5 @@ So that It can be available for applications.
         When A Post Request is sent
           | Title         |
           | black Clothes |
-        Then A Response with Status 400 is received
+        Then Response with Status 400 is received
         And A Message of "This tag already exist" is include in response body

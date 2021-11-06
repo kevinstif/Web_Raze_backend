@@ -128,10 +128,10 @@ namespace Raze.API.Tests
                 table13.AddRow(new string[] {
                             "White t-shirt"});
 #line 11
-        testRunner.When("A Post Request is sent", ((string)(null)), table13, "When ");
+        testRunner.When("Post Request is sent", ((string)(null)), table13, "When ");
 #line hidden
 #line 14
-        testRunner.Then("A Response with Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("Response with Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
                 TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title"});
@@ -190,7 +190,7 @@ namespace Raze.API.Tests
         testRunner.When("A Post Request is sent", ((string)(null)), table16, "When ");
 #line hidden
 #line 26
-        testRunner.Then("A Response with Status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+        testRunner.Then("Response with Status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 27
         testRunner.And("A Message of \"This tag already exist\" is include in response body", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
