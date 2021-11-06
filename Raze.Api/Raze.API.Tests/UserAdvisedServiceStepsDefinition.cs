@@ -6,6 +6,7 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Newtonsoft.Json;
 using Raze.Api;
 using Raze.Api.Resources;
 using Raze.Api.Users.Resources;
@@ -22,9 +23,10 @@ namespace Raze.API.Tests
         private readonly WebApplicationFactory<Startup> _factory;
 
         private HttpClient Client { get; set; }
-        private Uri BaseUrl { get; set; }
+        private Uri BaseUri { get; set; }
         private Task<HttpResponseMessage>Response { get; set; }
         private UserAdvisedResource UserAdvised { get; set; }
+        private InterestResource Interest { get; set; }
         public UserAdvisedServiceStepsDefinition(WebApplicationFactory<Startup> factory)
         {
             _factory = factory;
@@ -34,8 +36,8 @@ namespace Raze.API.Tests
         public void GivenTheUseradvisedsEndpointIsAvailable(int port, int version)
 
         {
-         BaseUrl= new Uri($"https://localhost:{port}/api/v{version}/useradviseds");
-         Client = _factory.CreateClient(new WebApplicationFactoryClientOptions {BaseAddress = BaseUrl});
+            BaseUri= new Uri($"https://localhost:{port}/api/v{version}/useradviseds");
+            Client = _factory.CreateClient(new WebApplicationFactoryClientOptions {BaseAddress = BaseUri});
         }
 
         [When(@"A UserAdvised Request is sent")]
@@ -43,15 +45,27 @@ namespace Raze.API.Tests
         {
             var resource = saveUserAdvisedResource.CreateSet<SaveUserAdvisedResource>().First();
             var content = new StringContent(resource.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json);
-            Response = Client.PostAsync(BaseUrl, content);
+            Response = Client.PostAsync(BaseUri, content);
         }
 
-        [Then(@"A Reponse with Status (.*) is received")]
-        public void ThenAReponseWithStatusIsReceived(int expectedStatus)
+        [Then(@"A Response with Status (.*) is received")]
+        public void ThenAResponseWithStatusIsReceived(int expectedStatus)
         {
             var expectedStatusCode = ((HttpStatusCode)expectedStatus).ToString();
             var actualStatusCode = Response.Result.StatusCode.ToString();
             Assert.Equal(expectedStatusCode,actualStatusCode);
+        }
+
+        [Given(@"A Interest is already stored")]
+        public async void GivenAInterestIsAlreadyStored(Table existingInterestResource)
+        {
+            var interestUri = new Uri("https://localhost:5001/api/v1/interests");
+            var resource = existingInterestResource.CreateSet<SaveInterestResource>().First();
+            var content = new StringContent(resource.ToJson(), Encoding.UTF8, MediaTypeNames.Application.Json);
+            var interestResponse = Client.PostAsync(interestUri, content);
+            var interestResponseData = await interestResponse.Result.Content.ReadAsStringAsync();
+            var existingInterest = JsonConvert.DeserializeObject<InterestResource>(interestResponseData);
+            Interest = existingInterest;
         }
     }
 }
