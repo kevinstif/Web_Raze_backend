@@ -74,3 +74,4 @@ D:\UPC\2021 2\APLICACIONES WEB - ES3C\TF\Web Service\Merged\Raze.Api\Raze.Api\ob
 D:\UPC\2021 2\APLICACIONES WEB - ES3C\TF\Web Service\Merged\Raze.Api\Raze.Api\obj\Debug\net5.0\Raze.Api.pdb
 D:\UPC\2021 2\APLICACIONES WEB - ES3C\TF\Web Service\Merged\Raze.Api\Raze.Api\obj\Debug\net5.0\Raze.Api.genruntimeconfig.cache
 C:\Users\Kevin\Documents\GitHub\Web_Raze_backend\Raze.Api\Raze.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Annotations.dll
+D:\UPC\2021 2\APLICACIONES WEB - ES3C\TF\Web Service\Merged\Raze.Api\Raze.Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Annotations.dll

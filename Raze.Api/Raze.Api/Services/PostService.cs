@@ -15,14 +15,16 @@ namespace Raze.Api.Services
         private readonly IUserAdvisedRepository _advisedRepository;
         private readonly IUserAdvisorRepository _advisorRepository;
         private readonly IInterestRepository _interestRepository;
+        private readonly ITagRepository _tagRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PostService(IPostRepository postRepository, IUserAdvisedRepository advisedRepository, IUserAdvisorRepository advisorRepository, IInterestRepository interestRepository, IUnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, IUserAdvisedRepository advisedRepository, IUserAdvisorRepository advisorRepository, IInterestRepository interestRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork)
         {
             _postRepository = postRepository;
             _advisedRepository = advisedRepository;
             _advisorRepository = advisorRepository;
             _interestRepository = interestRepository;
+            _tagRepository = tagRepository;
             _unitOfWork = unitOfWork;
         }
 
@@ -70,6 +72,12 @@ namespace Raze.Api.Services
             if (existingInterest == null)
             {
                 return new PostResponse("Interest not found.");
+            }
+
+            var existingTag = await _tagRepository.FindByIdAsync(post.TagId);
+            if (existingTag == null)
+            {
+                return new PostResponse("Tag not found.");
             }
             
             try
