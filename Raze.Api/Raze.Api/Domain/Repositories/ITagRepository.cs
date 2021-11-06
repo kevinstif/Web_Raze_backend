@@ -9,6 +9,7 @@ namespace Raze.Api.Domain.Repositories
         Task<IEnumerable<Tag>> ListAsync();
         Task AddAsync(Tag comment);
         Task<Tag> FindByIdAsync(int id);
+        Task<IEnumerable<Tag>> FindByTitleAsync(string title);
         void Update(Tag tag);
         void Remove(Tag tag);
     }

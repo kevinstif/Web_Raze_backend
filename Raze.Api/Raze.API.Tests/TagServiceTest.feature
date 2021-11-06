@@ -10,7 +10,7 @@ So that It can be available for applications.
     Scenario: Add Tag
         When A Post Request is sent
           | Title         |
-          | white t-shirt |
+          | White t-shirt |
         Then A Response with Status 200 is received
         And A Tag Resource is included in response body
           | Title         |

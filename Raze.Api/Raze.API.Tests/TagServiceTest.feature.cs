@@ -126,7 +126,7 @@ namespace Raze.API.Tests
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title"});
                 table1.AddRow(new string[] {
-                            "white t-shirt"});
+                            "White t-shirt"});
 #line 11
         testRunner.When("A Post Request is sent", ((string)(null)), table1, "When ");
 #line hidden

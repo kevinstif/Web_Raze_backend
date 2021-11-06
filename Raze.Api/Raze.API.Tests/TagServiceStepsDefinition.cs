@@ -34,7 +34,7 @@ namespace Raze.API.Tests
         [Given(@"The Endpoint https://localhost:(.*)/api/v(.*)/tags is available")]
         public void GivenTheTagsEndpointIsAvailable(int port, int version)
         {
-            BaseUri = new Uri($"https://localhost:{port}/api/{version}/tags");
+            BaseUri = new Uri($"https://localhost:{port}/api/v{version}/tags");
             Client = _factory.CreateClient(new WebApplicationFactoryClientOptions {BaseAddress = BaseUri});
         }
 
@@ -70,7 +70,7 @@ namespace Raze.API.Tests
         public async void ThenAMessageOfIsIncludeInResponseBodyWithValue(string expectedMessage)
         {
             var actualMessage = await Response.Result.Content.ReadAsStringAsync();
-            var jsonExpectedMessage = expectedMessage.ToJson();
+            var jsonExpectedMessage = expectedMessage.ToString();
             Assert.Equal(jsonExpectedMessage,actualMessage);
         }
 
