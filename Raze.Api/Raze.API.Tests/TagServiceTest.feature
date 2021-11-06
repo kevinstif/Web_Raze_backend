@@ -17,7 +17,7 @@ So that It can be available for applications.
           | White t-shirt |
 
     Scenario: Add Tag with exiting title
-        Given A Tag is already stored
+        Given A Tag is already saved
           | Title         |
           | black Clothes |
         When A Post Request is sent

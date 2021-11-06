@@ -100,7 +100,7 @@ namespace Raze.API.Tests
                         "Id",
                         "Title"});
             table2.AddRow(new string[] {
-                        "1",
+                        "2",
                         "Jeans"});
 #line 11
      testRunner.And("A Tag is already stored", ((string)(null)), table2, "And ");
@@ -338,7 +338,7 @@ namespace Raze.API.Tests
                             "Use a striped t-shirt this autumn",
                             "1",
                             "-1",
-                            "1"});
+                            "2"});
 #line 40
   testRunner.When("A Post Request is Sent", ((string)(null)), table8, "When ");
 #line hidden

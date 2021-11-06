@@ -70,11 +70,11 @@ namespace Raze.API.Tests
         public async void ThenAMessageOfIsIncludeInResponseBodyWithValue(string expectedMessage)
         {
             var actualMessage = await Response.Result.Content.ReadAsStringAsync();
-            var jsonExpectedMessage = expectedMessage.ToString();
+            var jsonExpectedMessage = expectedMessage.ToJson();
             Assert.Equal(jsonExpectedMessage,actualMessage);
         }
 
-        [Given(@"A Tag is already stored")]
+        [Given(@"A Tag is already saved")]
         public async void GivenATagIsAlreadyStored(Table existingTagResources)
         {
             var resources = existingTagResources.CreateSet<SaveTagResource>().First();

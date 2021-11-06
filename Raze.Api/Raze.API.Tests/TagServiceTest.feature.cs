@@ -123,22 +123,22 @@ namespace Raze.API.Tests
 #line 6
     this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title"});
-                table1.AddRow(new string[] {
+                table10.AddRow(new string[] {
                             "White t-shirt"});
 #line 11
-        testRunner.When("A Post Request is sent", ((string)(null)), table1, "When ");
+        testRunner.When("A Post Request is sent", ((string)(null)), table10, "When ");
 #line hidden
 #line 14
         testRunner.Then("A Response with Status 200 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title"});
-                table2.AddRow(new string[] {
+                table11.AddRow(new string[] {
                             "White t-shirt"});
 #line 15
-        testRunner.And("A Tag Resource is included in response body", ((string)(null)), table2, "And ");
+        testRunner.And("A Tag Resource is included in response body", ((string)(null)), table11, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -175,19 +175,19 @@ namespace Raze.API.Tests
 #line 6
     this.FeatureBackground();
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title"});
-                table3.AddRow(new string[] {
+                table12.AddRow(new string[] {
                             "black Clothes"});
 #line 20
-        testRunner.Given("A Tag is already stored", ((string)(null)), table3, "Given ");
+        testRunner.Given("A Tag is already saved", ((string)(null)), table12, "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                             "Title"});
-                table4.AddRow(new string[] {
+                table13.AddRow(new string[] {
                             "black Clothes"});
 #line 23
-        testRunner.When("A Post Request is sent", ((string)(null)), table4, "When ");
+        testRunner.When("A Post Request is sent", ((string)(null)), table13, "When ");
 #line hidden
 #line 26
         testRunner.Then("A Response with Status 400 is received", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

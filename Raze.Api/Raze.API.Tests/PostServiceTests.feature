@@ -10,7 +10,7 @@
 		  | 1  | Casual | Casual Outfits | 1         |
     	And A Tag is already stored
     	  | Id | Title |
-          | 1  | Jeans | 
+          | 2  | Jeans | 
 		And A User is already stored
 		  | Id | FirstName | LastName   | UserName | Password | Age | Premium | InterestId |
 		  | 1  | Edward    | Ticlavilca | Edward24 | pass     | 19  | 1       | 1          |
@@ -39,7 +39,7 @@
 	Scenario: Add Post with Invalid Interest
 		When A Post Request is Sent
 		  | Title              | Image   | Description                       | UserId | InterestId | TagId |
-		  | Best autumn outfit | image 1 | Use a striped t-shirt this autumn | 1      | -1          | 1    |
+		  | Best autumn outfit | image 1 | Use a striped t-shirt this autumn | 1      | -1          | 2    |
 		Then A Response with status 400 is received 
 		And A Message of "Interest not found." is included in Response Body
 		
