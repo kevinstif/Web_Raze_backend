@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Resources;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Produces("application/json")]
     [ApiController]
     [Route("/api/v1/usersadviseds/{userId}/posts")]
     public class AdvisedPostsController: ControllerBase
@@ -22,6 +24,10 @@ namespace Raze.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(
+            Summary = "Get All Posts By User Advised",
+            Description = "Get All Posts for a the given UserAdvisedId.",
+            Tags = new []{"UsersAdviseds"})]
         public async Task<IEnumerable<PostResource>> GetAllByUserIdAsync(int userId)
         {
             var posts = await _postService.ListByAdvisedAsync(userId);

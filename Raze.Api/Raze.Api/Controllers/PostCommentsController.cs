@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Resources.CommentResources;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Produces("application/json")]
     [ApiController]
     [Route("/api/v1/posts/{postId}/comments")]
     public class PostCommentsController:ControllerBase
@@ -22,6 +24,10 @@ namespace Raze.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(
+            Summary = "Get All Comments By Post",
+            Description = "Get All Comments for a the given PostId.",
+            Tags = new []{"Posts"})]
         public async Task<IEnumerable<CommentResource>> GetAllByPostIdAsync(int postId)
         {
             var comments = await _commentServices.LisByPostAsync(postId);

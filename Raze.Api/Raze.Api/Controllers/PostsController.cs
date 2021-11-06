@@ -6,9 +6,12 @@ using Raze.Api.Domain.Services;
 using Raze.Api.Domain.Models;
 using Raze.Api.Extensions;
 using Raze.Api.Resources;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Produces("application/json")]
+    [ApiController]
     [Route("/api/v1/[controller]")]
     public class PostsController : ControllerBase
     {
@@ -21,6 +24,11 @@ namespace Raze.Api.Controllers
             _mapper = mapper;
         }
 
+        [SwaggerOperation(
+            Summary = "Get All Posts",
+            Description = "Get All Posts already stored.",
+            Tags = new []{"Posts"})]
+        
         [HttpGet]
         public async Task<IEnumerable<PostResource>> GetAllAsync()
         {

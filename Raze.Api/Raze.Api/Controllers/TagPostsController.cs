@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Resources;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Produces("application/json")]
     [ApiController]
     [Route("api/v1/tags/{tagId}/posts")]
     public class TagPostsController
@@ -22,6 +24,10 @@ namespace Raze.Api.Controllers
         }
 
         [HttpGet]
+        [SwaggerOperation(
+            Summary = "Get All Posts By Tag",
+            Description = "Get All Posts for a the given TagId.",
+            Tags = new []{"Tags"})]
         public async Task<IEnumerable<PostResource>> GetAllByTag(int tagId)
         {
             var posts = await _postService.ListByTagAsync(tagId);
