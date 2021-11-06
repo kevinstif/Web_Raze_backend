@@ -1,10 +1,13 @@
-﻿using TechTalk.SpecFlow;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
+using Raze.Api;
+using TechTalk.SpecFlow;
 
 namespace Raze.API.Tests
 {
     [Binding]
     public class TagServiceStepsDefinition
     {
+        //private readonly WebApplicationFactory<Startup>
         [Given(@"The Endpoint https://localhost:(.*)/api/v(.*)/tags is available")]
         public void GivenTheEndpointHttpsLocalhostApiVTagsIsAvailable(int port, int version)
         {
