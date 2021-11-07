@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="662013f3-3663-472a-a09f-51f3473bf93d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/PublishOutputs.970b38ede8.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/PublishOutputs.d243cac7df.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/CoverletSourceRootsMapping" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/CoverletSourceRootsMapping" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.API.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.API.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.API.Tests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.API.Tests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.API.Tests.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.API.Tests.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.Api.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/Raze.Api.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/ref/Raze.API.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/bin/Debug/net5.0/ref/Raze.API.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/Raze.API.Tests.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/ref/Raze.API.Tests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.API.Tests/obj/Debug/net5.0/ref/Raze.API.Tests.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Debug/net5.0/Raze.Api.Tests.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Raze.Api.Tests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Raze.Api.Tests.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Raze.Api.Tests.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/Raze.Api.Tests.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.Tests/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/bin/Debug/net5.0/Raze.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/bin/Debug/net5.0/Raze.Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/bin/Debug/net5.0/Raze.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/bin/Debug/net5.0/Raze.Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/bin/Debug/net5.0/Raze.Api.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/bin/Debug/net5.0/Raze.Api.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Debug/net5.0/Raze.Api.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Raze.Api.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Raze.Api.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Raze.Api.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/Raze.Api.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Raze.Api/Raze.Api/obj/rider.project.restore.info" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20Yt0U3jHDK6jW4RcyYFUxImG0Z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../202102/DesingSoftware/semana 15/fast-education-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="662013f3-3663-472a-a09f-51f3473bf93d" name="Default Changelist" comment="" />
+      <created>1636233129074</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636233129074</updated>
+      <workItem from="1636233133456" duration="759000" />
+      <workItem from="1636242772661" duration="645000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
