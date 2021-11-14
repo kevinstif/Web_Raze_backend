@@ -14,6 +14,7 @@ namespace Raze.Api.Persistence.Contexts
         public DbSet<UserAdvised>UserAdviseds { get; set; }
         public DbSet<UserAdvisor>UserAdvisors{ get; set; }
         public DbSet<Tag>Tags { get; set; }
+        public DbSet<Profession> Professions { get; set; }
 
         public AppDbContext(DbContextOptions options) : base(options)
         {
@@ -108,6 +109,17 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Comment>().HasKey(p => p.Id);
             builder.Entity<Comment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Comment>().Property(p => p.Text).IsRequired().HasMaxLength(200);
+            
+            builder.Entity<Profession>().ToTable("Professions");
+            builder.Entity<Profession>().HasKey(p => p.Id);
+            builder.Entity<Profession>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Profession>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+            
+            builder.Entity<Profession>().HasData
+            (
+                new Profession { Id=100, Name = "Fashion consultant"},
+                new Profession { Id=101, Name = "Designer"}
+            );
 
             builder.UseSnakeCaseNamingConventions();
         }
