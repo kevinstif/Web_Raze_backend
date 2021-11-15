@@ -7,6 +7,7 @@ namespace Raze.Api.Users.Domain.Repositories
     public interface IUserAdvisorRepository
     {
         Task<IEnumerable<UserAdvisor>> ListAsync();
+        Task<IEnumerable<UserAdvisor>> FindByProfessionId(int id);
         Task AddAsync(UserAdvisor userAdvisor);
         Task<UserAdvisor> FindbyIdAsync(int id);
         

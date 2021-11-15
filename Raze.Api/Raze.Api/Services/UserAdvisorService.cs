@@ -13,20 +13,33 @@ namespace Raze.Api.Users.Services
     {
         private readonly IUserAdvisorRepository _userAdvisorRepository;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IProfessionRepository _professionRepository;
 
-        public UserAdvisorService(IUserAdvisorRepository userAdvisorRepository, IUnitOfWork unitOfWork)
+        public UserAdvisorService(IUserAdvisorRepository userAdvisorRepository, IUnitOfWork unitOfWork, IProfessionRepository professionRepository)
         {
             _userAdvisorRepository = userAdvisorRepository;
             _unitOfWork = unitOfWork;
+            _professionRepository = professionRepository;
         }
 
         public async Task<IEnumerable<UserAdvisor>> ListAsync()
         {
             return await _userAdvisorRepository.ListAsync();
         }
+        
+        public async Task<IEnumerable<UserAdvisor>> ListByProfessionAsync(int professionId)
+        {
+            return await _userAdvisorRepository.FindByProfessionId(professionId);
+        }
 
         public async Task<UserAdvisorResponse> SaveAsync(UserAdvisor userAdvisor)
         {
+            var existingProfession = await _professionRepository.FindByIdAsync(userAdvisor.ProfessionId);
+            if (existingProfession == null)
+            {
+                return new UserAdvisorResponse("Profession not found.");
+            }
+            
             try
             {
                 await _userAdvisorRepository.AddAsync(userAdvisor);
@@ -45,8 +58,8 @@ namespace Raze.Api.Users.Services
             if (existingUserAdvisor == null)
                 return new UserAdvisorResponse("User not found");
             existingUserAdvisor.UserName = userAdvisor.UserName;
-            existingUserAdvisor.Profession = userAdvisor.Profession;
             existingUserAdvisor.InterestId = userAdvisor.InterestId;
+            existingUserAdvisor.ProfessionId = userAdvisor.ProfessionId;
             try
             {
                 _userAdvisorRepository.Update(existingUserAdvisor);

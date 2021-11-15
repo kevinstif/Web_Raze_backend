@@ -12,5 +12,6 @@ namespace Raze.Api.Domain.Services
         Task<UserAdvisorResponse> UpdateAsync(int id, UserAdvisor userAdvisor);
 
         Task<UserAdvisorResponse> DeleteAsync(int id);
+        Task<IEnumerable<UserAdvisor>> ListByProfessionAsync(int professionId);
     }
 }

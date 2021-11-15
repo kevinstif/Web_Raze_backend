@@ -34,7 +34,7 @@ namespace Raze.Api.Persistence.Contexts
             
             builder.Entity<Interest>().ToTable("Interests");
             builder.Entity<Interest>().HasKey(p => p.Id);
-            builder.Entity<Interest>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<Interest>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();    
             builder.Entity<Interest>().Property(p => p.Title).IsRequired().HasMaxLength(50);
             builder.Entity<Interest>().Property(p => p.Description).IsRequired().HasMaxLength(100);
             builder.Entity<Interest>().Property(p => p.Published).IsRequired();
@@ -85,7 +85,7 @@ namespace Raze.Api.Persistence.Contexts
             );
             
             builder.Entity<UserAdvisor>().HasData(
-                new UserAdvisor{Id = 3,FirstName = "Drake",LastName = "Bell",UserName = "Drell",Password = "hamburgesa",Age = 23,Premium =false,YearsExperience = 13,Rank = 273,Profession = "Teacher"}
+                new UserAdvisor{Id = 3,FirstName = "Drake",LastName = "Bell",UserName = "Drell",Password = "hamburgesa",Age = 23,Premium =false,YearsExperience = 13,Rank = 273, ProfessionId = 100}
             );
 
             builder.Entity<Post>().ToTable("Posts");
@@ -114,6 +114,9 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Profession>().HasKey(p => p.Id);
             builder.Entity<Profession>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<Profession>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+            builder.Entity<Profession>().HasMany(p => p.UserAdvisors)
+                .WithOne(p => p.Profession)
+                .HasForeignKey(p => p.ProfessionId);
             
             builder.Entity<Profession>().HasData
             (

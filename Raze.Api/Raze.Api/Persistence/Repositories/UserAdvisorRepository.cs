@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Raze.Api.Persistence.Contexts;
@@ -37,6 +38,13 @@ namespace Raze.Api.Users.Persistence.Repositories
         public void Remove(UserAdvisor userAdvisor)
         {
             _context.UserAdvisors.Remove(userAdvisor);
+        }
+        public async Task<IEnumerable<UserAdvisor>> FindByProfessionId(int id)
+        {
+            return await _context.UserAdvisors
+                .Where(p => p.ProfessionId == id)
+                .Include(p => p.Profession)
+                .ToListAsync();
         }
     }
 }

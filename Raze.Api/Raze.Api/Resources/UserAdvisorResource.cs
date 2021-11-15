@@ -11,6 +11,7 @@
         public bool Premium { get; set; }
         public int YearsExperience { get; set; }
         public int Rank { get; set; }
-        public string Profession { get; set; }
+        public int ProfessionId { get; set; }
+        public ProfessionResource Profession;
     }
 }
