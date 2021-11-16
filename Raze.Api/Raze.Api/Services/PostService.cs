@@ -116,6 +116,7 @@ namespace Raze.Api.Services
             existingPost.Description = post.Description;
             existingPost.Rate = post.Rate;
             existingPost.NumberOfRates = post.NumberOfRates;
+            existingPost.UserId = post.UserId;
             existingPost.InterestId = post.InterestId;
 
             try
