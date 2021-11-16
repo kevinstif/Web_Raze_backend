@@ -61,11 +61,22 @@ namespace Raze.Api.Services
 
         public async Task<PostResponse> SaveAsync(Post post)
         {
-            var existingAdvised = await _advisedRepository.FindbyIdAsync(post.UserId);
-            var existingAdvisor = await  _advisorRepository.FindbyIdAsync(post.UserId);
-            if (existingAdvisor == null && existingAdvised == null)
+            if (post.UserType == "Advisor")
             {
-                return new PostResponse("User not found.");
+                var existingAdvisor = await  _advisorRepository.FindbyIdAsync(post.UserId);
+                if (existingAdvisor == null)
+                {
+                    return new PostResponse("User not found.");
+                }
+            }
+            else if (post.UserType == "Advised")
+            {
+                var existingAdvised = await _advisedRepository.FindbyIdAsync(post.UserId);
+            
+                if (existingAdvised == null)
+                {
+                    return new PostResponse("User not found.");
+                }
             }
 
             var existingInterest = await _interestRepository.FindByIdAsync(post.InterestId);
