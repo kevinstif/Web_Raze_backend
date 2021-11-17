@@ -10,8 +10,7 @@ namespace Raze.Api.Domain.Models
         public string Description { get; set; }
         public bool Published { get; set; }
         
-        public IList<UserAdvisor> UserAdvisors { get; set; } = new List<UserAdvisor>();
-        public IList<UserAdvised> UserAdviseds { get; set; } = new List<UserAdvised>();
+        public IList<User> User { get; set; } = new List<User>();
         public IList<Post> Posts { get; set; } = new List<Post>();
     }
 }

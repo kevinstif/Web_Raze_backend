@@ -12,8 +12,7 @@
         public int UserId { get; set; }
         public int InterestId { get; set; }
         public int TagId { get; set; }
-        public UserAdvisedResource UserAdvised;
-        public UserAdvisorResource UserAdvisor;
+        public UserResource User;
         public InterestResource Interest;
         public TagResource Tag;
     }

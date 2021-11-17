@@ -27,7 +27,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Get All Posts By Tag",
             Description = "Get All Posts for a the given TagId.",
-            Tags = new []{"Tags"})]
+            Tags = new []{"Posts"})]
         public async Task<IEnumerable<PostResource>> GetAllByTag(int tagId)
         {
             var posts = await _postService.ListByTagAsync(tagId);

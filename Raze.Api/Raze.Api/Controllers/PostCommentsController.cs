@@ -27,7 +27,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Get All Comments By Post",
             Description = "Get All Comments for a the given PostId.",
-            Tags = new []{"Posts"})]
+            Tags = new []{"Comments"})]
         public async Task<IEnumerable<CommentResource>> GetAllByPostIdAsync(int postId)
         {
             var comments = await _commentServices.LisByPostAsync(postId);

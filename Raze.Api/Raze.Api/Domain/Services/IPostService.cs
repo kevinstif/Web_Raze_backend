@@ -8,8 +8,7 @@ namespace Raze.Api.Domain.Services
     public interface IPostService
     {
         Task<IEnumerable<Post>> ListAsync();
-        Task<IEnumerable<Post>> ListByAdvisedAsync(int userId);
-        Task<IEnumerable<Post>> ListByAdvisorAsync(int userId);
+        Task<IEnumerable<Post>> ListByUserAsync(int userId);
         Task<IEnumerable<Post>> ListByTagAsync(int tagId);
         Task<IEnumerable<Post>> ListByInterestAsync(int interestId);
         Task<Post> FindByIdAsync(int id);

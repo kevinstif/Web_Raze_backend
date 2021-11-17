@@ -11,7 +11,6 @@ using Raze.Api.Persistence.Contexts;
 using Raze.Api.Persistence.Repositories;
 using Raze.Api.Services;
 using Raze.Api.Users.Domain.Repositories;
-using Raze.Api.Users.Domain.Services;
 using Raze.Api.Users.Persistence.Repositories;
 using Raze.Api.Users.Services;
 
@@ -53,10 +52,8 @@ namespace Raze.Api
             services.AddScoped<IInterestService, InterestService>();
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IPostService, PostService>();
-            services.AddScoped<IUserAdvisedRepository,UserAdvisedRepository>();
-            services.AddScoped<IUserAdvisedService,UserAdvisedService>();
-            services.AddScoped<IUserAdvisorRepository,UserAdvisorRepository>();
-            services.AddScoped<IUserAdvisorService,UserAdvisorService>();
+            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IUserService,UserService>();
             services.AddScoped<ITagRepository, TagRepository>();
             services.AddScoped<ITagServices, TagServices>();
             services.AddScoped<IProfessionRepository, ProfessionRepository>();

@@ -40,7 +40,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Get Comments By Id",
             Description = "Get Comments By Id already stored",
-            Tags = new []{"Comment"})]
+            Tags = new []{"Comments"})]
         [HttpGet("{id}")]
         public async Task<CommentResource> GetByIdAsync(int id)
         {
@@ -53,7 +53,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Create New Comment",
             Description = "Create New Comment",
-            Tags = new []{"Create Comment"})]
+            Tags = new []{"Comments"})]
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveCommentResource resource)
         {
@@ -73,7 +73,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Update Comment",
             Description = "Update Comment already stored",
-            Tags = new []{"Update"})]
+            Tags = new []{"Comments"})]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync(int id, [FromBody] SaveCommentResource resource)
         {
@@ -95,7 +95,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Delete Comment",
             Description = "Delete Comment already stored",
-            Tags = new []{"Delete"})]
+            Tags = new []{"Comments"})]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

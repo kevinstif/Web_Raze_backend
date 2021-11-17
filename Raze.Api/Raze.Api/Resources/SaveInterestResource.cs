@@ -14,7 +14,5 @@ namespace Raze.Api.Resources
         
         [Required]
         public bool Published { get; set; }
-        
-        //User
     }
 }

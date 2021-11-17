@@ -7,7 +7,6 @@ namespace Raze.Api.Domain.Repositories
     public interface IPostRepository
     {
         Task<IEnumerable<Post>> ListAsync();
-        Task<IEnumerable<Post>> FindByAdvicedId(int id);
         Task<IEnumerable<Post>> FindByAdvisorId(int id);
         Task<IEnumerable<Post>> FindByTagId(int id);
         Task<IEnumerable<Post>> FindByInterestId(int id);

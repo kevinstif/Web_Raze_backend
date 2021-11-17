@@ -11,13 +11,13 @@ namespace Raze.Api.Controllers
 {
     [Produces("application/json")]
     [ApiController]
-    [Route("/api/v1/usersadvisors/{userId}/posts")]
-    public class AdvisorPostController: ControllerBase
+    [Route("/api/v1/user/{userId}/posts")]
+    public class UserPostController: ControllerBase
     {
         private readonly IPostService _postService;
         private readonly IMapper _mapper;
 
-        public AdvisorPostController(IMapper mapper, IPostService postService)
+        public UserPostController(IMapper mapper, IPostService postService)
         {
             _mapper = mapper;
             _postService = postService;
@@ -25,12 +25,12 @@ namespace Raze.Api.Controllers
         
         [HttpGet]
         [SwaggerOperation(
-            Summary = "Get All Posts By User Advisor",
-            Description = "Get All Posts for a the given UserAdvisorId.",
-            Tags = new []{"UsersAdvisors"})]
+            Summary = "Get All Posts By User",
+            Description = "Get All Posts for a the given UserId.",
+            Tags = new []{"Posts"})]
         public async Task<IEnumerable<PostResource>> GetAllByUserIdAsync(int userId)
         {
-            var posts = await _postService.ListByAdvisorAsync(userId);
+            var posts = await _postService.ListByUserAsync(userId);
             var resources = _mapper.Map<IEnumerable<Post>, IEnumerable<PostResource>>(posts);
             return resources;
         }

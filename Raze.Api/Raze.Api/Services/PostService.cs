@@ -12,17 +12,15 @@ namespace Raze.Api.Services
     public class PostService : IPostService
     {
         private readonly IPostRepository _postRepository;
-        private readonly IUserAdvisedRepository _advisedRepository;
-        private readonly IUserAdvisorRepository _advisorRepository;
+        private readonly IUserRepository _repository;
         private readonly IInterestRepository _interestRepository;
         private readonly ITagRepository _tagRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PostService(IPostRepository postRepository, IUserAdvisedRepository advisedRepository, IUserAdvisorRepository advisorRepository, IInterestRepository interestRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, IUserRepository repository, IInterestRepository interestRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork)
         {
             _postRepository = postRepository;
-            _advisedRepository = advisedRepository;
-            _advisorRepository = advisorRepository;
+            _repository = repository;
             _interestRepository = interestRepository;
             _tagRepository = tagRepository;
             _unitOfWork = unitOfWork;
@@ -33,12 +31,7 @@ namespace Raze.Api.Services
             return await _postRepository.ListAsync();
         }
 
-        public async Task<IEnumerable<Post>> ListByAdvisedAsync(int userId)
-        {
-            return await _postRepository.FindByAdvicedId(userId);
-        }
-
-        public async Task<IEnumerable<Post>> ListByAdvisorAsync(int userId)
+        public async Task<IEnumerable<Post>> ListByUserAsync(int userId)
         {
             return await _postRepository.FindByAdvisorId(userId);
         }
@@ -63,17 +56,8 @@ namespace Raze.Api.Services
         {
             if (post.UserType == "Advisor")
             {
-                var existingAdvisor = await  _advisorRepository.FindbyIdAsync(post.UserId);
+                var existingAdvisor = await  _repository.FindbyIdAsync(post.UserId);
                 if (existingAdvisor == null)
-                {
-                    return new PostResponse("User not found.");
-                }
-            }
-            else if (post.UserType == "Advised")
-            {
-                var existingAdvised = await _advisedRepository.FindbyIdAsync(post.UserId);
-            
-                if (existingAdvised == null)
                 {
                     return new PostResponse("User not found.");
                 }

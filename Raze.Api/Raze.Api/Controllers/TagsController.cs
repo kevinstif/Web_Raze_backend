@@ -40,7 +40,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Get Tag",
             Description = "Get Tag By Id already stored",
-            Tags = new []{"Tag"})]
+            Tags = new []{"Tags"})]
         [HttpGet("{id}")]
         public async Task<TagResource> GetByIdAsync(int id)
         {
@@ -52,7 +52,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Create Tag",
             Description = "Create Tag",
-            Tags = new []{"Create"})]
+            Tags = new []{"Tags"})]
         [HttpPost]
         public async Task<IActionResult> CreateTagAsync([FromBody] SaveTagResource resource)
         {
@@ -73,7 +73,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Update Tag",
             Description = "Update Tag By Id already stored",
-            Tags = new []{"Tag"})]
+            Tags = new []{"Tags"})]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateAsync(int id, [FromBody] SaveTagResource resource)
         {
@@ -94,7 +94,7 @@ namespace Raze.Api.Controllers
         [SwaggerOperation(
             Summary = "Delete Tag",
             Description = "Delete Tag By Id already stored",
-            Tags = new []{"Tag"})]
+            Tags = new []{"Tags"})]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAsync(int id)
         {

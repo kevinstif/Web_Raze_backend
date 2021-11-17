@@ -19,19 +19,11 @@ namespace Raze.Api.Persistence.Repositories
             return await _context.Posts.ToListAsync();
         }
 
-        public async Task<IEnumerable<Post>> FindByAdvicedId(int id)
-        {
-            return await _context.Posts
-                .Where(p => p.UserId == id)
-                .Include(p => p.UserAdvised)
-                .ToListAsync();
-        }
-
         public async Task<IEnumerable<Post>> FindByAdvisorId(int id)
         {
             return await _context.Posts
                 .Where(p => p.UserId == id)
-                .Include(p => p.UserAdvisor)
+                .Include(p => p.User)
                 .ToListAsync();
         }
 

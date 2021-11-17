@@ -8,8 +8,7 @@ namespace Raze.Api.Users.Mapping
     {
         public ResourceToModelProfile()
         {
-            CreateMap<SaveUserAdvisedResource, UserAdvised>();
-            CreateMap<SaveUserAdvisorResource, UserAdvisor>();
+            CreateMap<SaveUserResource, User>();
 
         }
     }
