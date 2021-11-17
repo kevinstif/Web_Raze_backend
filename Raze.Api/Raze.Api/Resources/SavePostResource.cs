@@ -20,10 +20,7 @@ namespace Raze.Api.Resources
         
         [Required]
         public int NumberOfRates { get; set; }
-        
-        [Required]
-        public int UserType { get; set; }
-        
+
         [Required]
         public int UserId { get; set; }
         

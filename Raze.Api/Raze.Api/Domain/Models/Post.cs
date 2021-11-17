@@ -11,13 +11,12 @@ namespace Raze.Api.Domain.Models
         public string Description { get; set; }
         public float Rate { get; set; }
         public int NumberOfRates { get; set; }
-        public string UserType { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
         public int InterestId { get; set; }
+        public int TagId { get; set; }
+        public User User { get; set; }
         public Interest Interest { get; set; }
         public IList<Comment> Comments { get; set; } = new List<Comment>();
-        public int TagId { get; set; }
         public Tag Tag { get; set; }
 
         // 

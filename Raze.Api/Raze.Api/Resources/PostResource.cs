@@ -8,7 +8,6 @@
         public string Description { get; set; }
         public float Rate { get; set; }
         public int NumberOfRates { get; set; }
-        public string UserType { get; set; }
         public int UserId { get; set; }
         public int InterestId { get; set; }
         public int TagId { get; set; }

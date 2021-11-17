@@ -12,15 +12,15 @@ namespace Raze.Api.Services
     public class PostService : IPostService
     {
         private readonly IPostRepository _postRepository;
-        private readonly IUserRepository _repository;
+        private readonly IUserRepository _userRepository;
         private readonly IInterestRepository _interestRepository;
         private readonly ITagRepository _tagRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PostService(IPostRepository postRepository, IUserRepository repository, IInterestRepository interestRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork)
+        public PostService(IPostRepository postRepository, IUserRepository userRepository, IInterestRepository interestRepository, ITagRepository tagRepository, IUnitOfWork unitOfWork)
         {
             _postRepository = postRepository;
-            _repository = repository;
+            _userRepository = userRepository;
             _interestRepository = interestRepository;
             _tagRepository = tagRepository;
             _unitOfWork = unitOfWork;
@@ -54,13 +54,10 @@ namespace Raze.Api.Services
 
         public async Task<PostResponse> SaveAsync(Post post)
         {
-            if (post.UserType == "Advisor")
+            var existingUser = await  _userRepository.FindbyIdAsync(post.UserId);
+            if (existingUser == null)
             {
-                var existingAdvisor = await  _repository.FindbyIdAsync(post.UserId);
-                if (existingAdvisor == null)
-                {
-                    return new PostResponse("User not found.");
-                }
+                return new PostResponse("User not found.");
             }
 
             var existingInterest = await _interestRepository.FindByIdAsync(post.InterestId);

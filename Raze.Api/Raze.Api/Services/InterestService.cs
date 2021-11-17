@@ -46,6 +46,7 @@ namespace Raze.Api.Services
             if (existingInterest == null)
                 return new InterestResponse("Not found");
             existingInterest.Title = interest.Title;
+            existingInterest.Img = interest.Img;
             existingInterest.Description = interest.Description;
             existingInterest.Published = interest.Published;
 

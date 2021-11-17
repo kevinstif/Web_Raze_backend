@@ -9,6 +9,9 @@ namespace Raze.Api.Resources
         public string Title { get; set; }
         
         [Required]
+        public string Img { get; set; }
+        
+        [Required]
         [MaxLength(100)]
         public string Description { get; set; }
         

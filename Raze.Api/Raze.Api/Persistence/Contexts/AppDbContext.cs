@@ -35,6 +35,7 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Interest>().HasKey(p => p.Id);
             builder.Entity<Interest>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();    
             builder.Entity<Interest>().Property(p => p.Title).IsRequired().HasMaxLength(50);
+            builder.Entity<Interest>().Property(p => p.Img).IsRequired();
             builder.Entity<Interest>().Property(p => p.Description).IsRequired().HasMaxLength(100);
             builder.Entity<Interest>().Property(p => p.Published).IsRequired();
             builder.Entity<Interest>().HasMany(p => p.User)
@@ -46,9 +47,9 @@ namespace Raze.Api.Persistence.Contexts
 
             builder.Entity<Interest>().HasData
             (
-                new Interest{Id=500,Title = "Casual",Description = "Informal clothes",Published = true},
-                new Interest{Id=501,Title = "Formal",Description = "Formal and elegant clothes",Published = false},
-                new Interest{Id=502,Title = "Sport",Description = "Clothes for training",Published = true}
+                new Interest{Id=1,Title = "Casual",Img = "image",Description = "Informal clothes",Published = true},
+                new Interest{Id=2,Title = "Formal",Img = "image",Description = "Formal and elegant clothes",Published = false},
+                new Interest{Id=3,Title = "Sport",Img = "image",Description = "Clothes for training",Published = true}
             );
 
             //Advisor
