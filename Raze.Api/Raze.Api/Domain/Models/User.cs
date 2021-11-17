@@ -3,7 +3,7 @@ using Raze.Api.Domain.Models;
 
 namespace Raze.Api.Users.Domain.Models
 {
-    public class User
+    public abstract class User
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -12,6 +12,7 @@ namespace Raze.Api.Users.Domain.Models
         public  string Password { get; set; }
         public int Age { get; set; }
         public bool Premium { get; set; }
+        public string Type { get; set; }
         
         public int InterestId { get; set; }
         public Interest Interest { get; set; }

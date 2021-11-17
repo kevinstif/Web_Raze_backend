@@ -9,6 +9,7 @@
         public  string Password { get; set; }
         public int Age { get; set; }
         public bool Premium { get; set; }
+        public string Type { get; set; }
         public int Mood { get; set; }
     }
 }

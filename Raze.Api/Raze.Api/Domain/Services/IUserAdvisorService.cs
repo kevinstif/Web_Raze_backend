@@ -7,11 +7,11 @@ namespace Raze.Api.Domain.Services
 {
     public interface IUserAdvisorService
     {
-        Task<IEnumerable<UserAdvisor>> ListAsync();
-        Task<UserAdvisorResponse> SaveAsync(UserAdvisor userAdvisor);
-        Task<UserAdvisorResponse> UpdateAsync(int id, UserAdvisor userAdvisor);
+        Task<IEnumerable<AdvisorUser>> ListAsync();
+        Task<UserAdvisorResponse> SaveAsync(AdvisorUser advisorUser);
+        Task<UserAdvisorResponse> UpdateAsync(int id, AdvisorUser advisorUser);
 
         Task<UserAdvisorResponse> DeleteAsync(int id);
-        Task<IEnumerable<UserAdvisor>> ListByProfessionAsync(int professionId);
+        Task<IEnumerable<AdvisorUser>> ListByProfessionAsync(int professionId);
     }
 }

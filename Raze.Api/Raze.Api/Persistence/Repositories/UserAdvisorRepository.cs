@@ -15,33 +15,33 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
         }
 
-        public  async Task<IEnumerable<UserAdvisor>> ListAsync()
+        public  async Task<IEnumerable<AdvisorUser>> ListAsync()
         {
-            return await _context.UserAdvisors.ToListAsync();
+            return await _context.AdvisorUsers.ToListAsync();
         }
 
-        public async Task AddAsync(UserAdvisor userAdvisor)
+        public async Task AddAsync(AdvisorUser advisorUser)
         {
-            await _context.UserAdvisors.AddAsync(userAdvisor);
+            await _context.AdvisorUsers.AddAsync(advisorUser);
         }
 
-        public async Task<UserAdvisor> FindbyIdAsync(int id)
+        public async Task<AdvisorUser> FindbyIdAsync(int id)
         {
-            return await _context.UserAdvisors.FindAsync(id);
+            return await _context.AdvisorUsers.FindAsync(id);
         }
 
-        public void Update(UserAdvisor userAdvisor)
+        public void Update(AdvisorUser advisorUser)
         {
-            _context.UserAdvisors.Update(userAdvisor);
+            _context.AdvisorUsers.Update(advisorUser);
         }
 
-        public void Remove(UserAdvisor userAdvisor)
+        public void Remove(AdvisorUser advisorUser)
         {
-            _context.UserAdvisors.Remove(userAdvisor);
+            _context.AdvisorUsers.Remove(advisorUser);
         }
-        public async Task<IEnumerable<UserAdvisor>> FindByProfessionId(int id)
+        public async Task<IEnumerable<AdvisorUser>> FindByProfessionId(int id)
         {
-            return await _context.UserAdvisors
+            return await _context.AdvisorUsers
                 .Where(p => p.ProfessionId == id)
                 .Include(p => p.Profession)
                 .ToListAsync();

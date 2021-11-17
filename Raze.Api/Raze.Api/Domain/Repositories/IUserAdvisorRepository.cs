@@ -6,13 +6,13 @@ namespace Raze.Api.Users.Domain.Repositories
 {
     public interface IUserAdvisorRepository
     {
-        Task<IEnumerable<UserAdvisor>> ListAsync();
-        Task<IEnumerable<UserAdvisor>> FindByProfessionId(int id);
-        Task AddAsync(UserAdvisor userAdvisor);
-        Task<UserAdvisor> FindbyIdAsync(int id);
+        Task<IEnumerable<AdvisorUser>> ListAsync();
+        Task<IEnumerable<AdvisorUser>> FindByProfessionId(int id);
+        Task AddAsync(AdvisorUser advisorUser);
+        Task<AdvisorUser> FindbyIdAsync(int id);
         
-        void Update(UserAdvisor userAdvisor);
-        void Remove(UserAdvisor userAdvisor);
+        void Update(AdvisorUser advisorUser);
+        void Remove(AdvisorUser advisorUser);
 
     }
 }

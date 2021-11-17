@@ -11,8 +11,9 @@ namespace Raze.Api.Persistence.Contexts
         public DbSet<Interest> Interests { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<UserAdvised>UserAdviseds { get; set; }
-        public DbSet<UserAdvisor>UserAdvisors{ get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<AdvisedUser>AdvisedUsers { get; set; }
+        public DbSet<AdvisorUser>AdvisorUsers{ get; set; }
         public DbSet<Tag>Tags { get; set; }
         public DbSet<Profession> Professions { get; set; }
 
@@ -23,6 +24,64 @@ namespace Raze.Api.Persistence.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
+            //discriminator
+            builder.Entity<User>()
+                .HasDiscriminator<string>("user_type")
+                .HasValue<AdvisedUser>("advised")
+                .HasValue<AdvisorUser>("advisor");
+            builder.Entity<User>()
+                .Property(p => p.Type)
+                .HasMaxLength(200)
+                .HasColumnName("blog_type");
+
+            //Constrains Advised
+            builder.Entity<AdvisedUser>().Property(p => p.FirstName)
+                .HasColumnName("first_name").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisedUser>().Property(p => p.LastName)
+                .HasColumnName("last_name").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisedUser>().Property(p => p.UserName)
+                .HasColumnName("user_name").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisedUser>().Property(p => p.Password)
+                .HasColumnName("password").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisedUser>().Property(p => p.Age)
+                .HasColumnName("age").IsRequired();
+            builder.Entity<AdvisedUser>().Property(p => p.Premium)
+                .HasColumnName("premium").IsRequired();
+            builder.Entity<AdvisedUser>().Property(p => p.Mood)
+                .HasColumnName("mood").IsRequired();
+            builder.Entity<AdvisedUser>().HasMany(p => p.Comments)
+                .WithOne(p => p.AdvisedUser)
+                .HasForeignKey(p => p.UserId);
+            builder.Entity<AdvisedUser>().HasMany(p => p.Posts)
+                .WithOne(p => p.AdvisedUser)
+                .HasForeignKey(p => p.UserId);
+            
+            //Constrarins Advisor
+            builder.Entity<AdvisorUser>().Property(p => p.FirstName)
+                .HasColumnName("first_name").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisorUser>().Property(p => p.LastName)
+                .HasColumnName("last_name").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisorUser>().Property(p => p.UserName)
+                .HasColumnName("user_name").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisorUser>().Property(p => p.Password)
+                .HasColumnName("password").IsRequired().HasMaxLength(100);
+            builder.Entity<AdvisorUser>().Property(p => p.Age)
+                .HasColumnName("age").IsRequired();
+            builder.Entity<AdvisorUser>().Property(p => p.Premium)
+                .HasColumnName("premium").IsRequired();
+            builder.Entity<AdvisorUser>().Property(p => p.YearsExperience)
+                .HasColumnName("years_of_experience").IsRequired();
+            builder.Entity<AdvisorUser>().Property(p => p.Rank)
+                .HasColumnName("rank").IsRequired();
+            builder.Entity<AdvisorUser>().HasMany(p => p.Comments)
+                .WithOne(p => p.AdvisorUser)
+                .HasForeignKey(p => p.UserId);
+            builder.Entity<AdvisorUser>().HasMany(p => p.Posts)
+                .WithOne(p => p.AdvisorUser)
+                .HasForeignKey(p => p.UserId);
+            
+            //################################################################3
 
             builder.Entity<Tag>().ToTable("tags");
             builder.Entity<Tag>().HasKey(p => p.Id);
@@ -53,39 +112,6 @@ namespace Raze.Api.Persistence.Contexts
                 new Interest{Id=500,Title = "Casual",Description = "Informal clothes",Published = true},
                 new Interest{Id=501,Title = "Formal",Description = "Formal and elegant clothes",Published = false},
                 new Interest{Id=502,Title = "Sport",Description = "Clothes for training",Published = true}
-            );
-            
-            builder.Entity<UserAdvised>().ToTable("UserAdviseds");
-            builder.Entity<UserAdvisor>().ToTable("UserAdvisors");
-            //discriminator
-            //Constrains Advised
-            builder.Entity<UserAdvised>().HasKey(p => p.Id);
-            builder.Entity<UserAdvised>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<UserAdvised>().HasMany(p => p.Comments)
-                .WithOne(p => p.UserAdvised)
-                .HasForeignKey(p => p.UserId);
-            builder.Entity<UserAdvised>().HasMany(p => p.Posts)
-                .WithOne(p => p.UserAdvised)
-                .HasForeignKey(p => p.UserId);
-            
-            //Constrarins Advisor
-            builder.Entity<UserAdvisor>().HasKey(p => p.Id);
-            builder.Entity<UserAdvisor>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
-            builder.Entity<UserAdvisor>().HasMany(p => p.Comments)
-                .WithOne(p => p.UserAdvisor)
-                .HasForeignKey(p => p.UserId);
-            builder.Entity<UserAdvisor>().HasMany(p => p.Posts)
-                .WithOne(p => p.UserAdvisor)
-                .HasForeignKey(p => p.UserId);
-            
-            //Seed Data Users
-            builder.Entity<UserAdvised>().HasData(
-                new UserAdvised{Id = 4,FirstName = "Loriam",LastName = "KARL",UserName = "kARLO",Password = "dracula25",Age = 22,Premium =false,Mood = 2},
-                new UserAdvised{Id = 5,FirstName = "Dexter",LastName = "Newbe",UserName = "Dex",Password = "Nerito27",Age = 28,Premium =true,Mood = 3}
-            );
-            
-            builder.Entity<UserAdvisor>().HasData(
-                new UserAdvisor{Id = 3,FirstName = "Drake",LastName = "Bell",UserName = "Drell",Password = "hamburgesa",Age = 23,Premium =false,YearsExperience = 13,Rank = 273, ProfessionId = 100}
             );
 
             builder.Entity<Post>().ToTable("Posts");

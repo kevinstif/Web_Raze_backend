@@ -3,9 +3,9 @@ using Raze.Api.Users.Domain.Models;
 
 namespace Raze.Api.Users.Domain.Services.Communication
 {
-    public class UserAdvisedResponse:BaseResponse<UserAdvised>
+    public class UserAdvisedResponse:BaseResponse<AdvisedUser>
     {
-        public UserAdvisedResponse(UserAdvised userAdvised):base(userAdvised){}
+        public UserAdvisedResponse(AdvisedUser advisedUser):base(advisedUser){}
 
         public UserAdvisedResponse(string message):base(message){}
     }

@@ -20,18 +20,18 @@ namespace Raze.Api.Users.Services
         }
 
     
-        public async Task<IEnumerable<UserAdvised>> ListAsync()
+        public async Task<IEnumerable<AdvisedUser>> ListAsync()
         {
             return await _userAdvisedRepository.ListAsync();
         }
 
-        public async Task<UserAdvisedResponse> SaveAsync(UserAdvised userAdvised)
+        public async Task<UserAdvisedResponse> SaveAsync(AdvisedUser advisedUser)
         {
             try
             {
-                await _userAdvisedRepository.AddAsync(userAdvised);
+                await _userAdvisedRepository.AddAsync(advisedUser);
                 await _unitOfWork.CompleteAsync();
-                return new UserAdvisedResponse(userAdvised);
+                return new UserAdvisedResponse(advisedUser);
             }
             catch (Exception e)
             {
@@ -40,14 +40,14 @@ namespace Raze.Api.Users.Services
             }
         }
 
-        public async  Task<UserAdvisedResponse> UpdateAsync(int id, UserAdvised userAdvised)
+        public async  Task<UserAdvisedResponse> UpdateAsync(int id, AdvisedUser advisedUser)
         {
             var existingUserAdvised = await _userAdvisedRepository.FindbyIdAsync(id);
             if (existingUserAdvised == null)
                 return new UserAdvisedResponse("User not found");
-            existingUserAdvised.UserName = userAdvised.UserName;
-            existingUserAdvised.Mood = userAdvised.Mood;
-            existingUserAdvised.InterestId = userAdvised.InterestId;
+            existingUserAdvised.UserName = advisedUser.UserName;
+            existingUserAdvised.Mood = advisedUser.Mood;
+            existingUserAdvised.InterestId = advisedUser.InterestId;
             try
             {
                 _userAdvisedRepository.Update(existingUserAdvised);

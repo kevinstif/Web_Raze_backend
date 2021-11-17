@@ -15,6 +15,10 @@ namespace Raze.Api.Users.Resources
         [Required]
         public int Age { get; set; }
         [Required]
+        public bool Premium { get; set; }
+        [Required]
+        public string Type { get; set; }
+        [Required]
         public int Mood { get; set; }
         [Required]
         public int InterestId { get; set; }

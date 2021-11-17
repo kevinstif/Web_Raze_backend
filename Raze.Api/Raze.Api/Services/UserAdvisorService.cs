@@ -22,19 +22,19 @@ namespace Raze.Api.Users.Services
             _professionRepository = professionRepository;
         }
 
-        public async Task<IEnumerable<UserAdvisor>> ListAsync()
+        public async Task<IEnumerable<AdvisorUser>> ListAsync()
         {
             return await _userAdvisorRepository.ListAsync();
         }
         
-        public async Task<IEnumerable<UserAdvisor>> ListByProfessionAsync(int professionId)
+        public async Task<IEnumerable<AdvisorUser>> ListByProfessionAsync(int professionId)
         {
             return await _userAdvisorRepository.FindByProfessionId(professionId);
         }
 
-        public async Task<UserAdvisorResponse> SaveAsync(UserAdvisor userAdvisor)
+        public async Task<UserAdvisorResponse> SaveAsync(AdvisorUser advisorUser)
         {
-            var existingProfession = await _professionRepository.FindByIdAsync(userAdvisor.ProfessionId);
+            var existingProfession = await _professionRepository.FindByIdAsync(advisorUser.ProfessionId);
             if (existingProfession == null)
             {
                 return new UserAdvisorResponse("Profession not found.");
@@ -42,9 +42,9 @@ namespace Raze.Api.Users.Services
             
             try
             {
-                await _userAdvisorRepository.AddAsync(userAdvisor);
+                await _userAdvisorRepository.AddAsync(advisorUser);
                 await _unitOfWork.CompleteAsync();
-                return new UserAdvisorResponse(userAdvisor);
+                return new UserAdvisorResponse(advisorUser);
             }
             catch (Exception e)
             {
@@ -52,14 +52,14 @@ namespace Raze.Api.Users.Services
             }
         }
 
-        public async Task<UserAdvisorResponse> UpdateAsync(int id, UserAdvisor userAdvisor)
+        public async Task<UserAdvisorResponse> UpdateAsync(int id, AdvisorUser advisorUser)
         {
             var existingUserAdvisor = await _userAdvisorRepository.FindbyIdAsync(id);
             if (existingUserAdvisor == null)
                 return new UserAdvisorResponse("User not found");
-            existingUserAdvisor.UserName = userAdvisor.UserName;
-            existingUserAdvisor.InterestId = userAdvisor.InterestId;
-            existingUserAdvisor.ProfessionId = userAdvisor.ProfessionId;
+            existingUserAdvisor.UserName = advisorUser.UserName;
+            existingUserAdvisor.InterestId = advisorUser.InterestId;
+            existingUserAdvisor.ProfessionId = advisorUser.ProfessionId;
             try
             {
                 _userAdvisorRepository.Update(existingUserAdvisor);

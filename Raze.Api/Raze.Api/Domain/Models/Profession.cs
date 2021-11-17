@@ -8,6 +8,6 @@ namespace Raze.Api.Domain.Models
         public int Id { get; set; }
         public string Name { get; set; }
         
-        public IList<UserAdvisor> UserAdvisors { get; set; } = new List<UserAdvisor>();
+        public IList<AdvisorUser> UserAdvisors { get; set; } = new List<AdvisorUser>();
     }
 }

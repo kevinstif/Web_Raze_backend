@@ -14,29 +14,29 @@ namespace Raze.Api.Users.Persistence.Repositories
         {
         }
 
-        public  async Task<IEnumerable<UserAdvised>> ListAsync()
+        public  async Task<IEnumerable<AdvisedUser>> ListAsync()
         {
-            return await _context.UserAdviseds.ToListAsync();
+            return await _context.AdvisedUsers.ToListAsync();
         }
 
-        public async Task AddAsync(UserAdvised userAdvised)
+        public async Task AddAsync(AdvisedUser advisedUser)
         {
-            await _context.UserAdviseds.AddAsync(userAdvised);
+            await _context.AdvisedUsers.AddAsync(advisedUser);
         }
 
-        public async Task<UserAdvised> FindbyIdAsync(int id)
+        public async Task<AdvisedUser> FindbyIdAsync(int id)
         {
-            return await _context.UserAdviseds.FindAsync(id);
+            return await _context.AdvisedUsers.FindAsync(id);
         }
 
-        public void Update(UserAdvised userAdvised)
+        public void Update(AdvisedUser advisedUser)
         {
-            _context.UserAdviseds.Update(userAdvised);
+            _context.AdvisedUsers.Update(advisedUser);
         }
 
-        public void Remove(UserAdvised userAdvised)
+        public void Remove(AdvisedUser advisedUser)
         {
-            _context.UserAdviseds.Remove(userAdvised);
+            _context.AdvisedUsers.Remove(advisedUser);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Raze.Api.Persistence.Repositories
         {
             return await _context.Posts
                 .Where(p => p.UserId == id)
-                .Include(p => p.UserAdvised)
+                .Include(p => p.AdvisedUser)
                 .ToListAsync();
         }
 
@@ -31,7 +31,7 @@ namespace Raze.Api.Persistence.Repositories
         {
             return await _context.Posts
                 .Where(p => p.UserId == id)
-                .Include(p => p.UserAdvisor)
+                .Include(p => p.AdvisorUser)
                 .ToListAsync();
         }
 

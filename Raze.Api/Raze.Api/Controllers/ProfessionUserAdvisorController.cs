@@ -32,7 +32,7 @@ namespace Raze.Api.Controllers
         public async Task<IEnumerable<UserAdvisorResource>> GetAllByUserIdAsync(int professionId)
         {
             var userAdvisors = await _userAdvisorService.ListByProfessionAsync(professionId);
-            var resources = _mapper.Map<IEnumerable<UserAdvisor>, IEnumerable<UserAdvisorResource>>(userAdvisors);
+            var resources = _mapper.Map<IEnumerable<AdvisorUser>, IEnumerable<UserAdvisorResource>>(userAdvisors);
             return resources;
         }
     }

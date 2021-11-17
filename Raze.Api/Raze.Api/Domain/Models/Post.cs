@@ -13,8 +13,8 @@ namespace Raze.Api.Domain.Models
         public int NumberOfRates { get; set; }
         
         public int UserId { get; set; }
-        public UserAdvised UserAdvised { get; set; }
-        public UserAdvisor UserAdvisor { get; set; }
+        public AdvisedUser AdvisedUser { get; set; }
+        public AdvisorUser AdvisorUser { get; set; }
         public int InterestId { get; set; }
         public Interest Interest { get; set; }
         public IList<Comment> Comments { get; set; } = new List<Comment>();

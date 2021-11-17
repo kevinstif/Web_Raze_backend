@@ -7,11 +7,11 @@ namespace Raze.Api.Users.Domain.Repositories
 {
     public interface IUserAdvisedRepository
     {
-        Task<IEnumerable<UserAdvised>> ListAsync();
-        Task AddAsync(UserAdvised userAdvised);
-        Task<UserAdvised> FindbyIdAsync(int id);
-        void Update(UserAdvised userAdvised);
-        void Remove(UserAdvised userAdvised);
+        Task<IEnumerable<AdvisedUser>> ListAsync();
+        Task AddAsync(AdvisedUser advisedUser);
+        Task<AdvisedUser> FindbyIdAsync(int id);
+        void Update(AdvisedUser advisedUser);
+        void Remove(AdvisedUser advisedUser);
     }
     
 }

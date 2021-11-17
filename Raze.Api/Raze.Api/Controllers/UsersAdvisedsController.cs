@@ -25,7 +25,7 @@ namespace Raze.Api.Users.Controllers
         public async Task<IEnumerable<UserAdvisedResource>> GetAllAsync()
         {
             var usersAdviseds = await _userAdvisedService.ListAsync();
-            var resources = _mapper.Map<IEnumerable<UserAdvised>, IEnumerable<UserAdvisedResource>>(usersAdviseds);
+            var resources = _mapper.Map<IEnumerable<AdvisedUser>, IEnumerable<UserAdvisedResource>>(usersAdviseds);
             return resources;
         }
 
@@ -34,12 +34,12 @@ namespace Raze.Api.Users.Controllers
         {
              if (!ModelState.IsValid)
                return BadRequest(ModelState.GetErrorMessages());
-             var userAdvised = _mapper.Map<SaveUserAdvisedResource, UserAdvised>(resource);
+             var userAdvised = _mapper.Map<SaveUserAdvisedResource, AdvisedUser>(resource);
              var result = await _userAdvisedService.SaveAsync(userAdvised);
              if (!result.Success)
                  return BadRequest(result.Message);
              
-             var userAdvisedResource = _mapper.Map<UserAdvised, UserAdvisedResource>(result.Resource);
+             var userAdvisedResource = _mapper.Map<AdvisedUser, UserAdvisedResource>(result.Resource);
              return Ok(userAdvisedResource);
         }
 
@@ -48,12 +48,12 @@ namespace Raze.Api.Users.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState.GetErrorMessages());
-            var userAdvised = _mapper.Map<SaveUserAdvisedResource, UserAdvised>(resource);
+            var userAdvised = _mapper.Map<SaveUserAdvisedResource, AdvisedUser>(resource);
             var result = await _userAdvisedService.UpdateAsync(id, userAdvised);
             if (!result.Success)
                 return BadRequest(result.Message);
             
-            var userAdvisedResource = _mapper.Map<UserAdvised, UserAdvisedResource>(result.Resource);
+            var userAdvisedResource = _mapper.Map<AdvisedUser, UserAdvisedResource>(result.Resource);
             return Ok(userAdvisedResource);
             
         }
@@ -64,7 +64,7 @@ namespace Raze.Api.Users.Controllers
             var result = await _userAdvisedService.DeleteAsync(id);
             if (!result.Success)
                 return BadRequest(result.Message);
-            var userAdvisedResource = _mapper.Map<UserAdvised, UserAdvisedResource>(result.Resource);
+            var userAdvisedResource = _mapper.Map<AdvisedUser, UserAdvisedResource>(result.Resource);
             return Ok(userAdvisedResource);
         }
     }

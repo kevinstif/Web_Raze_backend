@@ -7,9 +7,9 @@ namespace Raze.Api.Users.Domain.Services
 {
     public interface IUserAdvisedService
     {
-        Task<IEnumerable<UserAdvised>> ListAsync();
-        Task<UserAdvisedResponse> SaveAsync(UserAdvised userAdvised);
-        Task<UserAdvisedResponse> UpdateAsync(int id, UserAdvised userAdvised);
+        Task<IEnumerable<AdvisedUser>> ListAsync();
+        Task<UserAdvisedResponse> SaveAsync(AdvisedUser advisedUser);
+        Task<UserAdvisedResponse> UpdateAsync(int id, AdvisedUser advisedUser);
 
         Task<UserAdvisedResponse> DeleteAsync(int id);
     }
