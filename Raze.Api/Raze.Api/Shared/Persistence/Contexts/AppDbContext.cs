@@ -45,13 +45,6 @@ namespace Raze.Api.Persistence.Contexts
                 .WithOne(p => p.Interest)
                 .HasForeignKey(p => p.InterestId);
 
-            builder.Entity<Interest>().HasData
-            (
-                new Interest{Id=1,Title = "Casual",Img = "image",Description = "Informal clothes",Published = true},
-                new Interest{Id=2,Title = "Formal",Img = "image",Description = "Formal and elegant clothes",Published = false},
-                new Interest{Id=3,Title = "Sport",Img = "image",Description = "Clothes for training",Published = true}
-            );
-
             //Advisor
             builder.Entity<User>().ToTable("users");
             builder.Entity<User>().HasKey(p => p.Id);
@@ -76,12 +69,7 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Post>().HasMany(p => p.Comments)
                 .WithOne(p => p.Post)
                 .HasForeignKey(p => p.PostId);
-            
-            builder.Entity<Post>().HasData(
-                new Post { Id = 1, Title = "Summer outfit", Image = "img 1", Description = "The best outfits for summer", Rate = 0, NumberOfRates = 0},
-                new Post { Id = 2, Title = "Sprint outfit", Image = "img 2", Description = "The best outfits for Sprint", Rate = 0, NumberOfRates = 0}
-            );
-            
+
             builder.Entity<Comment>().ToTable("comments");
             builder.Entity<Comment>().HasKey(p => p.Id);
             builder.Entity<Comment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
@@ -94,12 +82,6 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Profession>().HasMany(p => p.User)
                 .WithOne(p => p.Profession)
                 .HasForeignKey(p => p.ProfessionId);
-            
-            builder.Entity<Profession>().HasData
-            (
-                new Profession { Id=100, Name = "Fashion consultant"},
-                new Profession { Id=101, Name = "Designer"}
-            );
 
             builder.UseSnakeCaseNamingConventions();
         }

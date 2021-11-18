@@ -8523,20 +8523,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Acer\\.nuget\\packages\\": {}
+    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UPC\\2021 2\\APLICACIONES WEB - ES3C\\TF\\Web Service\\Merged\\Raze.Api\\Raze.API.Tests\\Raze.API.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Kevin\\Documents\\GitHub\\Web_Raze_backend\\Raze.Api\\Raze.API.Tests\\Raze.API.Tests.csproj",
       "projectName": "Raze.API.Tests",
-      "projectPath": "D:\\UPC\\2021 2\\APLICACIONES WEB - ES3C\\TF\\Web Service\\Merged\\Raze.Api\\Raze.API.Tests\\Raze.API.Tests.csproj",
-      "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-      "outputPath": "D:\\UPC\\2021 2\\APLICACIONES WEB - ES3C\\TF\\Web Service\\Merged\\Raze.Api\\Raze.API.Tests\\obj\\",
+      "projectPath": "C:\\Users\\Kevin\\Documents\\GitHub\\Web_Raze_backend\\Raze.Api\\Raze.API.Tests\\Raze.API.Tests.csproj",
+      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Kevin\\Documents\\GitHub\\Web_Raze_backend\\Raze.Api\\Raze.API.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -8549,8 +8557,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\UPC\\2021 2\\APLICACIONES WEB - ES3C\\TF\\Web Service\\Merged\\Raze.Api\\Raze.Api\\Raze.Api.csproj": {
-              "projectPath": "D:\\UPC\\2021 2\\APLICACIONES WEB - ES3C\\TF\\Web Service\\Merged\\Raze.Api\\Raze.Api\\Raze.Api.csproj"
+            "C:\\Users\\Kevin\\Documents\\GitHub\\Web_Raze_backend\\Raze.Api\\Raze.Api\\Raze.Api.csproj": {
+              "projectPath": "C:\\Users\\Kevin\\Documents\\GitHub\\Web_Raze_backend\\Raze.Api\\Raze.Api\\Raze.Api.csproj"
             }
           }
         }
@@ -8620,7 +8628,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,7 @@ namespace Raze.Api
 {
     public class Startup
     {
+        private readonly string _MyCors = "MyCors";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -37,6 +39,17 @@ namespace Raze.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "Raze.Api", Version = "v1"});
                 c.EnableAnnotations();
+            });
+            
+            //Configure Cors
+
+            services.AddCors(o =>
+            {
+                o.AddPolicy(name: _MyCors, b =>
+                {
+                    b.SetIsOriginAllowed(o => new Uri(o).Host == "localhost")
+                        .AllowAnyHeader().AllowAnyMethod();
+                });
             });
 
             // Configure In-Memory Database 
@@ -78,6 +91,8 @@ namespace Raze.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(_MyCors);
 
             app.UseAuthorization();
 
