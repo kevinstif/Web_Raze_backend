@@ -7,7 +7,7 @@
         public string ImgProfile { get; set; }
         public int Age { get; set; }
         public string Email { get; set; }
-        public string JwtToken { get; set; }
+        public string Token { get; set; }
         public int InterestId { get; set; }
         public string UserType { get; set; }
         public string Username { get; set; }
