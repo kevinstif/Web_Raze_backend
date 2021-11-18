@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Raze.Api.Users.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Extensions;
 using Raze.Api.Resources;
-using Raze.Api.Users.Resources;
+using Raze.Api.Security.Domain.Models;
+using Raze.Api.Security.Domain.Services;
+using Raze.Api.Security.Resources;
 
 namespace Raze.Api.Controllers
 {

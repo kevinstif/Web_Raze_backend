@@ -5,7 +5,8 @@ using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Repositories;
 using Raze.Api.Domain.Services;
 using Raze.Api.Domain.Services.Communication;
-using Raze.Api.Users.Domain.Repositories;
+using Raze.Api.Security.Domain.Repositories;
+using Raze.Api.Shared.Domain.Repositories;
 
 namespace Raze.Api.Services
 {
@@ -54,7 +55,7 @@ namespace Raze.Api.Services
 
         public async Task<PostResponse> SaveAsync(Post post)
         {
-            var existingUser = await  _userRepository.FindbyIdAsync(post.UserId);
+            var existingUser = await  _userRepository.FindByIdAsync(post.UserId);
             if (existingUser == null)
             {
                 return new PostResponse("User not found.");

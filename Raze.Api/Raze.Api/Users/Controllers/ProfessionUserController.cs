@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Raze.Api.Domain.Models;
 using Raze.Api.Domain.Services;
 using Raze.Api.Resources;
-using Raze.Api.Users.Domain.Models;
+using Raze.Api.Security.Domain.Models;
+using Raze.Api.Security.Domain.Services;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers

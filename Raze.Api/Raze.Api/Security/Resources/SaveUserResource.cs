@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Raze.Api.Users.Resources
+namespace Raze.Api.Security.Resources
 {
     public class SaveUserResource
     {

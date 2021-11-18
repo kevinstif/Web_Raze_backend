@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using Raze.Api;
 using Raze.Api.Resources;
-using Raze.Api.Users.Resources;
 using SpecFlow.Internal.Json;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;

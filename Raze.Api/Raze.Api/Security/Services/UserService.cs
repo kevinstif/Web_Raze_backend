@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Raze.Api.Domain.Repositories;
-using Raze.Api.Users.Domain.Models;
-using Raze.Api.Users.Domain.Repositories;
-using Raze.Api.Domain.Services;
-using Raze.Api.Domain.Services.Communication;
+using Raze.Api.Security.Domain.Models;
+using Raze.Api.Security.Domain.Repositories;
+using Raze.Api.Security.Domain.Services;
+using Raze.Api.Security.Domain.Services.Communication;
+using Raze.Api.Shared.Domain.Repositories;
 
-namespace Raze.Api.Users.Services
+namespace Raze.Api.Security.Services
 {
     public class UserService : IUserService
     {
@@ -60,10 +61,10 @@ namespace Raze.Api.Users.Services
 
         public async Task<UserResponse> UpdateAsync(int id, User user)
         {
-            var existingUser = await _userRepository.FindbyIdAsync(id);
+            var existingUser = await _userRepository.FindByIdAsync(id);
             if (existingUser == null)
                 return new UserResponse("User not found");
-            existingUser.UserName = user.UserName;
+            existingUser.Username = user.Username;
             existingUser.Email = user.Email;
             existingUser.ImgProfile = user.ImgProfile;
             existingUser.InterestId = user.InterestId;
@@ -78,14 +79,14 @@ namespace Raze.Api.Users.Services
             }
             catch (Exception e)
             {
-                return new UserResponse($"An error ocurred while updating the userAdvice :{e.Message}");
+                return new UserResponse($"An error occurred while updating the userAdvice :{e.Message}");
                 
             }
         }
 
         public async Task<UserResponse> DeleteAsync(int id)
         {
-            var existingUser = await _userRepository.FindbyIdAsync(id);
+            var existingUser = await _userRepository.FindByIdAsync(id);
             if (existingUser == null)
                 return new UserResponse("User not found");
             try
@@ -96,7 +97,7 @@ namespace Raze.Api.Users.Services
             }
             catch (Exception e)
             {
-                return new UserResponse($"An error ocurred while deleting the user :{e.Message}");
+                return new UserResponse($"An error occurred while deleting the user :{e.Message}");
             }
         }
     }

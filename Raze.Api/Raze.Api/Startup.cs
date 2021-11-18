@@ -7,12 +7,15 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Raze.Api.Domain.Repositories;
 using Raze.Api.Domain.Services;
-using Raze.Api.Persistence.Contexts;
 using Raze.Api.Persistence.Repositories;
+using Raze.Api.Security.Domain.Repositories;
+using Raze.Api.Security.Domain.Services;
+using Raze.Api.Security.Persistence.Repositories;
+using Raze.Api.Security.Services;
 using Raze.Api.Services;
-using Raze.Api.Users.Domain.Repositories;
-using Raze.Api.Users.Persistence.Repositories;
-using Raze.Api.Users.Services;
+using Raze.Api.Shared.Domain.Repositories;
+using Raze.Api.Shared.Persistence.Contexts;
+using Raze.Api.Shared.Persistence.Repositories;
 
 namespace Raze.Api
 {

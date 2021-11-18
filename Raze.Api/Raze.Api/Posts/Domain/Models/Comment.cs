@@ -1,4 +1,4 @@
-﻿using Raze.Api.Users.Domain.Models;
+﻿using Raze.Api.Security.Domain.Models;
 
 namespace Raze.Api.Domain.Models
 {
