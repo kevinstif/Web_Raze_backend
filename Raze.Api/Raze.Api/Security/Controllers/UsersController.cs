@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,7 @@ namespace Raze.Api.Security.Controllers
         [HttpPost("auth/sign-up")]
         public async Task<IActionResult> Register(SaveUserResource request)
         {
+            Console.WriteLine("Register:\n");
             await _userService.RegisterAsync(request);
             return Ok(new {message = "Registration successful"});
         }

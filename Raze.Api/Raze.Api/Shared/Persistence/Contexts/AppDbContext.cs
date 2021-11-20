@@ -69,6 +69,7 @@ namespace Raze.Api.Shared.Persistence.Contexts
             builder.Entity<User>().Property(p => p.Email).IsRequired();
             builder.Entity<User>().Property(p => p.UserType).IsRequired();
             builder.Entity<User>().Property(p => p.Premium).IsRequired();
+            
             builder.Entity<User>().HasOne(p => p.Profession)
                 .WithMany(p => p.User)
                 .HasForeignKey(p => p.ProfessionId);

@@ -16,7 +16,7 @@ namespace Raze.Api.Security.Domain.Services
         //Task DeleteAsync(int id);
         
         Task<User> FindByIdAsync(int id);
-        Task<UserResponse> SaveAsync(User user);
+        //Task<UserResponse> SaveAsync(User user);
         Task<UserResponse> UpdateAsync(int id, User user);
         Task<UserResponse> DeleteAsync(int id);
         Task<IEnumerable<User>> ListByProfessionAsync(int professionId);

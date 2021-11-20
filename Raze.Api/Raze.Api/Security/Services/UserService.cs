@@ -20,14 +20,16 @@ namespace Raze.Api.Security.Services
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IProfessionRepository _professionRepository;
+        private readonly IInterestRepository _interestRepository;
         private readonly IJwtHandler _jwtHandler;
         private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository, IUnitOfWork unitOfWork, IProfessionRepository professionRepository, IJwtHandler jwtHandler, IMapper mapper)
+        public UserService(IUserRepository userRepository, IUnitOfWork unitOfWork, IProfessionRepository professionRepository, IInterestRepository interestRepository, IJwtHandler jwtHandler, IMapper mapper)
         {
             _userRepository = userRepository;
             _unitOfWork = unitOfWork;
             _professionRepository = professionRepository;
+            _interestRepository = interestRepository;
             _jwtHandler = jwtHandler;
             _mapper = mapper;
         }
@@ -60,15 +62,58 @@ namespace Raze.Api.Security.Services
 
         public async Task RegisterAsync(SaveUserResource request)
         {
+            Console.WriteLine("Before validation");
             // Validate
             if (_userRepository.ExistsByEmail(request.Email))
                 throw new AppException($"Email {request.Email} is already taken");
+            
+            Console.WriteLine("Email validado");
+            Console.WriteLine("1\n");
+            Console.WriteLine(request.Name + "\n");
+            Console.WriteLine(request.ImgProfile + "\n");
+            Console.WriteLine(request.Age + "\n");
+            Console.WriteLine(request.Email + "\n");
+            Console.WriteLine(request.UserType + "\n");
+            Console.WriteLine(request.Username + "\n");
+            Console.WriteLine(request.Password + "\n");
+            Console.WriteLine(request.Premium + "\n");
+            Console.WriteLine(request.InterestId + "\n");
+            Console.WriteLine(request.ProfessionId + "\n");
             
             // Map request to user
             var user = _mapper.Map<User>(request);
             
             // Hash Password
             user.PasswordHash = BCryptNet.HashPassword(request.Password);
+            
+            // Interest
+            var interest = _interestRepository.FindByIdAsync(user.InterestId);
+            if(interest == null) 
+                throw new KeyNotFoundException("Interest not found");
+            user.Interest = interest.Result;
+
+            if (request.UserType == "Advisor")
+            {
+                // Profession
+                var profession = _professionRepository.FindByIdAsync((int)user.ProfessionId);
+                if(profession == null) 
+                    throw new KeyNotFoundException("Profession not found");
+                user.Profession = profession.Result;
+            }
+            
+            
+            Console.WriteLine("1\n");
+            Console.WriteLine(user.Id + "\n");
+            Console.WriteLine(user.Name + "\n");
+            Console.WriteLine(user.ImgProfile + "\n");
+            Console.WriteLine(user.Age + "\n");
+            Console.WriteLine(user.Email + "\n");
+            Console.WriteLine(user.UserType + "\n");
+            Console.WriteLine(user.Username + "\n");
+            Console.WriteLine(user.PasswordHash + "\n");
+            Console.WriteLine(user.Premium + "\n");
+            Console.WriteLine(user.InterestId + "\n");
+            Console.WriteLine(user.ProfessionId + "\n");
             
             // Save User
             try
@@ -115,25 +160,25 @@ namespace Raze.Api.Security.Services
             return await _userRepository.FindByProfessionId(professionId);
         }
 
-        public async Task<UserResponse> SaveAsync(User user)
-        {
-            var existingProfession = await _professionRepository.FindByIdAsync(user.ProfessionId);
-            if (existingProfession == null)
-            {
-                return new UserResponse("Profession not found.");
-            }
-            
-            try
-            {
-                await _userRepository.AddAsync(user);
-                await _unitOfWork.CompleteAsync();
-                return new UserResponse(user);
-            }
-            catch (Exception e)
-            {
-                return new UserResponse($"error:{e.Message}");
-            }
-        }
+        //public async Task<UserResponse> SaveAsync(User user)
+        //{
+        //    var existingProfession = await _professionRepository.FindByIdAsync(user.ProfessionId);
+        //    if (existingProfession == null)
+        //    {
+        //        return new UserResponse("Profession not found.");
+        //    }
+        //    
+        //    try
+        //    {
+        //        await _userRepository.AddAsync(user);
+        //        await _unitOfWork.CompleteAsync();
+        //        return new UserResponse(user);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        return new UserResponse($"error:{e.Message}");
+        //    }
+        //}
 
         public async Task<UserResponse> UpdateAsync(int id, User user)
         {

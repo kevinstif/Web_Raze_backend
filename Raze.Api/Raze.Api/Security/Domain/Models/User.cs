@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Text.Json.Serialization;
 using Raze.Api.Domain.Models;
 
@@ -17,8 +18,8 @@ namespace Raze.Api.Security.Domain.Models
         public string UserType { get; set; }
         public string Username { get; set; }
         public bool Premium { get; set; }
-        public int ProfessionId { get; set; }
-        public Profession Profession { get; set; }
+        public int? ProfessionId { get; set; }
+        public virtual Profession Profession { get; set; }
 
         public Interest Interest { get; set; }
         
