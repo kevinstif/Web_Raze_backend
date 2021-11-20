@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Raze.Api.Users.Resources
+namespace Raze.Api.Security.Resources
 {
     public class SaveUserResource
     {
@@ -15,14 +15,14 @@ namespace Raze.Api.Users.Resources
         [Required]
         public string UserType { get; set; }
         [Required]
-        public string UserName { get; set; }
+        public string Username { get; set; }
         [Required]
         public  string Password { get; set; }
         [Required]
         public bool Premium { get; set; }
         [Required]
         public int InterestId { get; set; }
-        [Required]
+        
         public int ProfessionId { get; set; }
     }
 }

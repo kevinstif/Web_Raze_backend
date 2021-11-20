@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Raze.Api.Domain.Repositories
+namespace Raze.Api.Shared.Domain.Repositories
 {
     public interface IUnitOfWork
     {

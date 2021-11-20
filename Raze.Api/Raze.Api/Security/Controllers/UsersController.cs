@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Raze.Api.Users.Domain.Models;
-using Raze.Api.Domain.Services;
 using Raze.Api.Extensions;
 using Raze.Api.Resources;
-using Raze.Api.Users.Resources;
+using Raze.Api.Security.Authorization.Attributes;
+using Raze.Api.Security.Domain.Models;
+using Raze.Api.Security.Domain.Services;
+using Raze.Api.Security.Domain.Services.Communication;
+using Raze.Api.Security.Resources;
 
-namespace Raze.Api.Controllers
+namespace Raze.Api.Security.Controllers
 {
+    [Authorize]
+    [ApiController]
     [Route("/api/v1/[controller]")]
     public class UsersController:ControllerBase
     {
@@ -22,15 +26,58 @@ namespace Raze.Api.Controllers
             _userService = userService;
             _mapper = mapper;
         }
-        [HttpGet]
-        public async Task<IEnumerable<UserResource>> GetAllAsync()
+
+        [AllowAnonymous]
+        [HttpPost("auth/sign-in")]
+        public async Task<IActionResult> Authenticate(AuthenticateRequest request)
         {
-            var user = await _userService.ListAsync();
-            var resources = _mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(user);
-            return resources;
+            var response = await _userService.Authenticate(request);
+            return Ok(response);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("auth/sign-up")]
+        public async Task<IActionResult> Register(SaveUserResource request)
+        {
+            Console.WriteLine("Register:\n");
+            await _userService.RegisterAsync(request);
+            return Ok(new {message = "Registration successful"});
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var users = await _userService.ListAsync();
+            var resources = _mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(users);
+            return Ok(resources);
         }
 
         [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var user = await _userService.GetByIdAsync(id);
+            var resources = _mapper.Map<User, UserResource>(user);
+            return Ok(resources);
+        }
+        
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, UpdateUserResource request)
+        {
+            await _userService.UpdateAsync(id, request);
+            return Ok(new {message = "User updated successfully."});
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _userService.DeleteAsync(id);
+            return Ok(new {message = "User Deleted successfully"});
+        }
+
+        
+
+        /*
+         [HttpGet("{id}")]
         public async Task<UserResource> GetByIdAsync(int id)
         {
             var user = await _userService.FindByIdAsync(id);
@@ -38,7 +85,15 @@ namespace Raze.Api.Controllers
 
             return resource;
         }
-
+         
+         [HttpGet]
+        public async Task<IEnumerable<UserResource>> GetAllAsync()
+        {
+            var user = await _userService.ListAsync();
+            var resources = _mapper.Map<IEnumerable<User>, IEnumerable<UserResource>>(user);
+            return resources;
+        }
+         
         [HttpPost]
         public async Task<IActionResult> PostAsync([FromBody] SaveUserResource resource)
         {
@@ -77,5 +132,6 @@ namespace Raze.Api.Controllers
             var userResource = _mapper.Map<User, UserResource>(result.Resource);
             return Ok(userResource);
         }
+        */
     }
 }

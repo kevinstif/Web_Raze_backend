@@ -1,10 +1,10 @@
-﻿using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Raze.Api.Domain.Models;
 using Raze.Api.Extensions;
-using Raze.Api.Users.Domain.Models;
+using Raze.Api.Security.Domain.Models;
 
-namespace Raze.Api.Persistence.Contexts
+namespace Raze.Api.Shared.Persistence.Contexts
 {
     public class AppDbContext : DbContext
     {
@@ -14,11 +14,18 @@ namespace Raze.Api.Persistence.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<Tag>Tags { get; set; }
         public DbSet<Profession> Professions { get; set; }
-
-        public AppDbContext(DbContextOptions options) : base(options)
+        protected readonly IConfiguration _configuration;
+        
+        public AppDbContext(DbContextOptions options, IConfiguration configuration) : base(options)
         {
+            _configuration = configuration;
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            builder.UseMySQL(_configuration.GetConnectionString("DefaultConnection"));
+        }
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -44,11 +51,24 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Interest>().HasMany(p => p.Posts)
                 .WithOne(p => p.Interest)
                 .HasForeignKey(p => p.InterestId);
-
+            
             //Advisor
             builder.Entity<User>().ToTable("users");
             builder.Entity<User>().HasKey(p => p.Id);
             builder.Entity<User>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+            builder.Entity<User>().Property(p => p.Name).IsRequired().HasMaxLength(50);
+            builder.Entity<User>().Property(p => p.ImgProfile).IsRequired();
+            builder.Entity<User>().Property(p => p.Age).IsRequired();
+            builder.Entity<User>().Property(p => p.Email).IsRequired();
+            builder.Entity<User>().Property(p => p.UserType).IsRequired();
+            builder.Entity<User>().Property(p => p.Premium).IsRequired();
+
+            builder.Entity<User>().HasOne(p => p.Profession)
+                .WithMany(p => p.User)
+                .HasForeignKey(p => p.ProfessionId);
+            builder.Entity<User>().HasOne(p => p.Interest)
+                .WithMany(i => i.User)
+                .HasForeignKey(p => p.InterestId);
             
             //Constrarins Advisor
             builder.Entity<User>().HasMany(p => p.Comments)
@@ -69,7 +89,7 @@ namespace Raze.Api.Persistence.Contexts
             builder.Entity<Post>().HasMany(p => p.Comments)
                 .WithOne(p => p.Post)
                 .HasForeignKey(p => p.PostId);
-
+            
             builder.Entity<Comment>().ToTable("comments");
             builder.Entity<Comment>().HasKey(p => p.Id);
             builder.Entity<Comment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();

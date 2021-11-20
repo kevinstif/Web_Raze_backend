@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Raze.Api.Persistence.Contexts;
+using Raze.Api.Shared.Persistence.Contexts;
 
 namespace Raze.Api
 {

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 using Raze.Api.Domain.Models;
 
-namespace Raze.Api.Users.Domain.Models
+namespace Raze.Api.Security.Domain.Models
 {
     public class User
     {
@@ -11,11 +13,12 @@ namespace Raze.Api.Users.Domain.Models
         public int Age { get; set; }
         public string Email { get; set; }
         public int InterestId { get; set; }
-        public  string Password { get; set; }
+        [JsonIgnore]
+        public  string PasswordHash { get; set; }
         public string UserType { get; set; }
-        public string UserName { get; set; }
+        public string Username { get; set; }
         public bool Premium { get; set; }
-        public int ProfessionId { get; set; }
+        public int? ProfessionId { get; set; }
         public Profession Profession { get; set; }
 
         public Interest Interest { get; set; }

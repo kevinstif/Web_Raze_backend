@@ -1,7 +1,7 @@
 ﻿using Raze.Api.Domain.Services.Comunications;
-using Raze.Api.Users.Domain.Models;
+using Raze.Api.Security.Domain.Models;
 
-namespace Raze.Api.Domain.Services.Communication
+namespace Raze.Api.Security.Domain.Services.Communication
 {
     public class UserResponse:BaseResponse<User>
     {

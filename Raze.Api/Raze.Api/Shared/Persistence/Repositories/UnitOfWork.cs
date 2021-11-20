@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using Raze.Api.Domain.Repositories;
-using Raze.Api.Persistence.Contexts;
+using Raze.Api.Shared.Domain.Repositories;
+using Raze.Api.Shared.Persistence.Contexts;
 
-namespace Raze.Api.Persistence.Repositories
+namespace Raze.Api.Shared.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
