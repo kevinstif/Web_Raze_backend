@@ -52,12 +52,12 @@ namespace Raze.Api.Shared.Persistence.Contexts
                 .WithOne(p => p.Interest)
                 .HasForeignKey(p => p.InterestId);
 
-            builder.Entity<Interest>().HasData
-            (
-                new Interest{Id=1,Title = "Casual",Img = "image",Description = "Informal clothes",Published = true},
-                new Interest{Id=2,Title = "Formal",Img = "image",Description = "Formal and elegant clothes",Published = false},
-                new Interest{Id=3,Title = "Sport",Img = "image",Description = "Clothes for training",Published = true}
-            );
+            //builder.Entity<Interest>().HasData
+            //(
+            //    new Interest{Id=1,Title = "Casual",Img = "image",Description = "Informal clothes",Published = true},
+            //    new Interest{Id=2,Title = "Formal",Img = "image",Description = "Formal and elegant clothes",Published = false},
+            //    new Interest{Id=3,Title = "Sport",Img = "image",Description = "Clothes for training",Published = true}
+            //);
 
             //Advisor
             builder.Entity<User>().ToTable("Users");
@@ -69,6 +69,12 @@ namespace Raze.Api.Shared.Persistence.Contexts
             builder.Entity<User>().Property(p => p.Email).IsRequired();
             builder.Entity<User>().Property(p => p.UserType).IsRequired();
             builder.Entity<User>().Property(p => p.Premium).IsRequired();
+            builder.Entity<User>().HasOne(p => p.Profession)
+                .WithMany(p => p.User)
+                .HasForeignKey(p => p.ProfessionId);
+            builder.Entity<User>().HasOne(p => p.Interest)
+                .WithMany(i => i.User)
+                .HasForeignKey(p => p.InterestId);
             
             //Constrarins Advisor
             builder.Entity<User>().HasMany(p => p.Comments)
@@ -90,10 +96,10 @@ namespace Raze.Api.Shared.Persistence.Contexts
                 .WithOne(p => p.Post)
                 .HasForeignKey(p => p.PostId);
             
-            builder.Entity<Post>().HasData(
-                new Post { Id = 1, Title = "Summer outfit", Image = "img 1", Description = "The best outfits for summer", Rate = 0, NumberOfRates = 0},
-                new Post { Id = 2, Title = "Sprint outfit", Image = "img 2", Description = "The best outfits for Sprint", Rate = 0, NumberOfRates = 0}
-            );
+            //builder.Entity<Post>().HasData(
+            //    new Post { Id = 1, Title = "Summer outfit", Image = "img 1", Description = "The best outfits for summer", Rate = 0, NumberOfRates = 0},
+            //    new Post { Id = 2, Title = "Sprint outfit", Image = "img 2", Description = "The best outfits for Sprint", Rate = 0, NumberOfRates = 0}
+            //);
             
             builder.Entity<Comment>().ToTable("comments");
             builder.Entity<Comment>().HasKey(p => p.Id);
@@ -108,11 +114,11 @@ namespace Raze.Api.Shared.Persistence.Contexts
                 .WithOne(p => p.Profession)
                 .HasForeignKey(p => p.ProfessionId);
             
-            builder.Entity<Profession>().HasData
-            (
-                new Profession { Id=100, Name = "Fashion consultant"},
-                new Profession { Id=101, Name = "Designer"}
-            );
+            //builder.Entity<Profession>().HasData
+            //(
+            //    new Profession { Id=100, Name = "Fashion consultant"},
+            //    new Profession { Id=101, Name = "Designer"}
+            //);
 
             builder.UseSnakeCaseNamingConventions();
         }

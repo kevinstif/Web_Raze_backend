@@ -10,6 +10,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [ApiController]
     [Produces("application/json")]
     [Route("/api/v1/[controller]")]
     public class CommentsController: ControllerBase
