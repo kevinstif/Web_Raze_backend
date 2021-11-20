@@ -19,7 +19,7 @@ namespace Raze.Api.Security.Domain.Models
         public string Username { get; set; }
         public bool Premium { get; set; }
         public int? ProfessionId { get; set; }
-        public virtual Profession Profession { get; set; }
+        public Profession Profession { get; set; }
 
         public Interest Interest { get; set; }
         

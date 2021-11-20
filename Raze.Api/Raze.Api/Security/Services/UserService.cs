@@ -92,13 +92,19 @@ namespace Raze.Api.Security.Services
                 throw new KeyNotFoundException("Interest not found");
             user.Interest = interest.Result;
 
+            
             if (request.UserType == "Advisor")
             {
                 // Profession
-                var profession = _professionRepository.FindByIdAsync((int)user.ProfessionId);
-                if(profession == null) 
+                var profession = _professionRepository.FindByIdAsync((int) user.ProfessionId);
+                if (profession == null)
                     throw new KeyNotFoundException("Profession not found");
                 user.Profession = profession.Result;
+            }
+            else
+            {
+                user.Profession = null;
+                user.ProfessionId = null;
             }
             
             
