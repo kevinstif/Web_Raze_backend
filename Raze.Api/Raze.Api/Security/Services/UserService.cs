@@ -87,10 +87,20 @@ namespace Raze.Api.Security.Services
             user.PasswordHash = BCryptNet.HashPassword(request.Password);
             
             // Interest
-            var interest = _interestRepository.FindByIdAsync(user.InterestId);
-            if(interest == null) 
-                throw new KeyNotFoundException("Interest not found");
-            user.Interest = interest.Result;
+            if ((int) user.InterestId == 0)
+            {
+                Console.WriteLine("InterestId equals 0");
+                user.Interest = null;
+                user.InterestId = null;
+            }
+            else
+            {
+                var interest = _interestRepository.FindByIdAsync((int) user.InterestId);
+                if(interest == null) 
+                    throw new KeyNotFoundException("Interest not found");
+                user.Interest = interest.Result;
+            }
+            
 
             
             if (request.UserType == "Advisor")
@@ -143,6 +153,32 @@ namespace Raze.Api.Security.Services
             
             // Map request to user
             _mapper.Map(request, user);
+
+            if ((int)user.InterestId != 0)
+            {
+                var interest = _interestRepository.FindByIdAsync((int)user.InterestId);
+                if(interest == null) 
+                    throw new KeyNotFoundException("Interest not found");
+                user.Interest = interest.Result;
+            }
+            else
+            {
+                user.Interest = null;
+                user.InterestId = null;
+            }
+            
+            if ((int)user.ProfessionId != 0)
+            {
+                var profession = _professionRepository.FindByIdAsync((int) user.ProfessionId);
+                if (profession == null)
+                    throw new KeyNotFoundException("Profession not found");
+                user.Profession = profession.Result;
+            }
+            else
+            {
+                user.Profession = null;
+                user.ProfessionId = null;
+            }
             
             try
             {

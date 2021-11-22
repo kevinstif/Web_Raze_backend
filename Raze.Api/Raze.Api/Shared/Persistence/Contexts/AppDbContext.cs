@@ -57,11 +57,11 @@ namespace Raze.Api.Shared.Persistence.Contexts
             builder.Entity<User>().HasKey(p => p.Id);
             builder.Entity<User>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             builder.Entity<User>().Property(p => p.Name).IsRequired().HasMaxLength(50);
-            builder.Entity<User>().Property(p => p.ImgProfile).IsRequired();
-            builder.Entity<User>().Property(p => p.Age).IsRequired();
+            builder.Entity<User>().Property(p => p.ImgProfile);
+            builder.Entity<User>().Property(p => p.Age);
             builder.Entity<User>().Property(p => p.Email).IsRequired();
-            builder.Entity<User>().Property(p => p.UserType).IsRequired();
-            builder.Entity<User>().Property(p => p.Premium).IsRequired();
+            builder.Entity<User>().Property(p => p.UserType);
+            builder.Entity<User>().Property(p => p.Premium);
 
             builder.Entity<User>().HasOne(p => p.Profession)
                 .WithMany(p => p.User)

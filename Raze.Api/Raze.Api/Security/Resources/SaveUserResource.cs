@@ -6,21 +6,21 @@ namespace Raze.Api.Security.Resources
     {
         [Required]
         public string Name { get; set; }
-        [Required]
+        //[Required]
         public string ImgProfile { get; set; }
-        [Required]
+        //[Required]
         public int Age { get; set; }
         [Required]
         public string Email { get; set; }
-        [Required]
+        //[Required]
         public string UserType { get; set; }
-        [Required]
+        //[Required]
         public string Username { get; set; }
         [Required]
         public  string Password { get; set; }
-        [Required]
+        //[Required]
         public bool Premium { get; set; }
-        [Required]
+        //[Required]
         public int InterestId { get; set; }
         
         public int ProfessionId { get; set; }

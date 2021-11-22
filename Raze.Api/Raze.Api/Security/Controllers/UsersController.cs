@@ -60,6 +60,7 @@ namespace Raze.Api.Security.Controllers
             return Ok(resources);
         }
         
+        [AllowAnonymous]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, UpdateUserResource request)
         {
