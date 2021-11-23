@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raze.Api", "Raze.Api\Raze.Api.csproj", "{9F29DF86-D8A6-49CF-B3F0-5B08969FD106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raze.API.Tests", "Raze.API.Tests\Raze.API.Tests.csproj", "{B83E200B-2B96-4059-8CBB-EDE3E2A64DB6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +12,5 @@ Global
 		{9F29DF86-D8A6-49CF-B3F0-5B08969FD106}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F29DF86-D8A6-49CF-B3F0-5B08969FD106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F29DF86-D8A6-49CF-B3F0-5B08969FD106}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B83E200B-2B96-4059-8CBB-EDE3E2A64DB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B83E200B-2B96-4059-8CBB-EDE3E2A64DB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B83E200B-2B96-4059-8CBB-EDE3E2A64DB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B83E200B-2B96-4059-8CBB-EDE3E2A64DB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
