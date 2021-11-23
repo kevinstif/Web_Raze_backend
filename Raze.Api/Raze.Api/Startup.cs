@@ -65,10 +65,10 @@ namespace Raze.Api
             
             // Configure In-Memory Database 
             services.AddDbContext<AppDbContext>();
-            //services.AddDbContext<AppDbContext>(options =>
-            //{
-            //    options.UseInMemoryDatabase("Raze-api-in-memory");
-            //});
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseInMemoryDatabase("Raze-api-in-memory");
+            });
 
             //Dependencies injection Rules
             services.AddScoped<IJwtHandler, JwtHandler>();

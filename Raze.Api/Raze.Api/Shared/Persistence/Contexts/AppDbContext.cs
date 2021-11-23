@@ -20,11 +20,6 @@ namespace Raze.Api.Shared.Persistence.Contexts
         {
             _configuration = configuration;
         }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder builder)
-        {
-            builder.UseMySQL(_configuration.GetConnectionString("DefaultConnection"));
-        }
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
