@@ -11,6 +11,7 @@ namespace Raze.Api.Security.Domain.Services
         Task<AuthenticateResponse> Authenticate(AuthenticateRequest request);
         Task<IEnumerable<User>> ListAsync();
         Task<User> GetByIdAsync(int id);
+        Task<User> GetByEmailAsync(string email);
         Task RegisterAsync(SaveUserResource request);
         Task UpdateAsync(int id, UpdateUserResource request);
         //Task DeleteAsync(int id);

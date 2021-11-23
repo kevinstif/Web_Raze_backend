@@ -41,7 +41,10 @@ namespace Raze.Api.Security.Controllers
         {
             Console.WriteLine("Register:\n");
             await _userService.RegisterAsync(request);
-            return Ok(new {message = "Registration successful"});
+            var user = await _userService.GetByEmailAsync(request.Email);
+            var resource = _mapper.Map<User, UserResource>(user);
+            //return Ok(new {message = "Registration successful"});
+            return Ok(resource);
         }
 
         [HttpGet]
