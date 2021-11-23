@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Raze.Api.Domain.Models;
 using Raze.Api.Extensions;
 using Raze.Api.Security.Domain.Models;
@@ -14,11 +13,9 @@ namespace Raze.Api.Shared.Persistence.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<Tag>Tags { get; set; }
         public DbSet<Profession> Professions { get; set; }
-        protected readonly IConfiguration _configuration;
         
-        public AppDbContext(DbContextOptions options, IConfiguration configuration) : base(options)
+        public AppDbContext(DbContextOptions options) : base(options)
         {
-            _configuration = configuration;
         }
         
         protected override void OnModelCreating(ModelBuilder builder)
