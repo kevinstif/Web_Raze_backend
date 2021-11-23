@@ -50,7 +50,7 @@ namespace Raze.Api
             });
             
             //Configure Cors
-
+            /*
             services.AddCors(o =>
             {
                 o.AddPolicy(name: _MyCors, b =>
@@ -59,6 +59,7 @@ namespace Raze.Api
                         .AllowAnyHeader().AllowAnyMethod();
                 });
             });
+            */
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             

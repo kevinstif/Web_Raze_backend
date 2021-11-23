@@ -6,10 +6,12 @@ using Raze.Api.Domain.Services;
 using Raze.Api.Domain.Models;
 using Raze.Api.Extensions;
 using Raze.Api.Resources;
+using Raze.Api.Security.Authorization.Attributes;
 using Swashbuckle.AspNetCore.Annotations;
 
 namespace Raze.Api.Controllers
 {
+    [Authorize]
     [Produces("application/json")]
     [ApiController]
     [Route("/api/v1/[controller]")]
